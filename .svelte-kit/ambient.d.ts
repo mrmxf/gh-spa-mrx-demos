@@ -26,10 +26,13 @@
  * ```
  */
 declare module '$env/static/private' {
+	export const LogFILE: string;
+	export const isZSH: string;
 	export const npm_package_devDependencies_vitest: string;
 	export const USER: string;
 	export const npm_config_version_commit_hooks: string;
 	export const npm_config_user_agent: string;
+	export const npm_package_dependencies__types_js_yaml: string;
 	export const npm_config_bin_links: string;
 	export const GIT_ASKPASS: string;
 	export const npm_node_execpath: string;
@@ -45,18 +48,22 @@ declare module '$env/static/private' {
 	export const npm_package_devDependencies_eslint_plugin_svelte: string;
 	export const npm_package_devDependencies_eslint_config_prettier: string;
 	export const NVM_INC: string;
+	export const cINC_SCRIPT: string;
 	export const npm_config_init_license: string;
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
 	export const YARN_WRAP_OUTPUT: string;
 	export const npm_package_devDependencies_svelte_check: string;
 	export const npm_config_version_tag_prefix: string;
 	export const VSCODE_GIT_ASKPASS_NODE: string;
+	export const cIsZSH: string;
 	export const npm_package_scripts_check: string;
+	export const cINC_VERSION: string;
 	export const COLORTERM: string;
 	export const WSL_DISTRO_NAME: string;
 	export const npm_package_description: string;
 	export const npm_package_devDependencies_typescript: string;
 	export const NVM_DIR: string;
+	export const LogPATH: string;
 	export const npm_package_readmeFilename: string;
 	export const AIRFLOW_HOME: string;
 	export const WAYLAND_DISPLAY: string;
@@ -84,6 +91,7 @@ declare module '$env/static/private' {
 	export const npm_package_name: string;
 	export const XDG_RUNTIME_DIR: string;
 	export const npm_package_scripts_test_integration: string;
+	export const cCORE_FOLDER: string;
 	export const DISPLAY: string;
 	export const npm_package_scripts_test_unit: string;
 	export const LANG: string;
@@ -161,10 +169,13 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
+		LogFILE: string;
+		isZSH: string;
 		npm_package_devDependencies_vitest: string;
 		USER: string;
 		npm_config_version_commit_hooks: string;
 		npm_config_user_agent: string;
+		npm_package_dependencies__types_js_yaml: string;
 		npm_config_bin_links: string;
 		GIT_ASKPASS: string;
 		npm_node_execpath: string;
@@ -180,18 +191,22 @@ declare module '$env/dynamic/private' {
 		npm_package_devDependencies_eslint_plugin_svelte: string;
 		npm_package_devDependencies_eslint_config_prettier: string;
 		NVM_INC: string;
+		cINC_SCRIPT: string;
 		npm_config_init_license: string;
 		VSCODE_GIT_ASKPASS_MAIN: string;
 		YARN_WRAP_OUTPUT: string;
 		npm_package_devDependencies_svelte_check: string;
 		npm_config_version_tag_prefix: string;
 		VSCODE_GIT_ASKPASS_NODE: string;
+		cIsZSH: string;
 		npm_package_scripts_check: string;
+		cINC_VERSION: string;
 		COLORTERM: string;
 		WSL_DISTRO_NAME: string;
 		npm_package_description: string;
 		npm_package_devDependencies_typescript: string;
 		NVM_DIR: string;
+		LogPATH: string;
 		npm_package_readmeFilename: string;
 		AIRFLOW_HOME: string;
 		WAYLAND_DISPLAY: string;
@@ -219,6 +234,7 @@ declare module '$env/dynamic/private' {
 		npm_package_name: string;
 		XDG_RUNTIME_DIR: string;
 		npm_package_scripts_test_integration: string;
+		cCORE_FOLDER: string;
 		DISPLAY: string;
 		npm_package_scripts_test_unit: string;
 		LANG: string;

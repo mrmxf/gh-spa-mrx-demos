@@ -6,6 +6,7 @@ resources/
 static/r
 static/rnf/
 build
+.svelte-kit
 
 # ignore node modules
 node_modules/

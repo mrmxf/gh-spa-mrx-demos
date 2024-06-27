@@ -41,6 +41,7 @@
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/adapter-static": "^3.0.1",
+		"@types/js-yaml": "^4.0.9",
 		"@types/prismjs": "^1.26.4",
 		"js-yaml": "^4.1.0",
 		"markdown-it": "^14.0.0",

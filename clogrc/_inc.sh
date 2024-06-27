@@ -3,11 +3,12 @@
 #  \ V  V / \ V  V / \ V  V / |___| | '  \  / -_) |  _| / _` | | '_| / -_) \ \ / |___| | '  \  / -_) / _` | | | / _` |
 #   \_/\_/   \_/\_/   \_/\_/        |_|_|_| \___|  \__| \__,_| |_|   \___| /_\_\       |_|_|_| \___| \__,_| |_| \__,_|
 source <(clog Inc)
-PROJECT=www-metarex-media
-bEXE="www-metarex-media"
-svelteFolder="svelte"
+PROJECT=$(basename $(pwd))  # use the working folder as default
+bEXE="$PROJECT"             # use the project name as default build exe
 callingSCRIPT="${0##*/}"
-vCodeType="hugo"
-vCodeSrc="data/history.yaml"
+vCodeType="svelte"
+vCodeSrc="src/lib/data/history.yaml"  # file containing this version number
 vCODE=$(cat $vCodeSrc | grep version | head -1 | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
-bMSG=$(cat  $vCodeSrc | grep note | head -1 | sed -nr "s/note: (.*)/\1/p" | xargs)
+bMSG=$(cat  $vCodeSrc | grep note    | head -1 | sed -nr "s/note: (.*)/\1/p" | xargs)
+dockerAcc=metarexmedia
+dockerBase=mrx-app-demos
