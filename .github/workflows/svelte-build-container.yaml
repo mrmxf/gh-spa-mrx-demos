@@ -119,6 +119,7 @@ jobs:
           name:  "${{ env.ArtifactsName }}-2"
           path: |
             ./build
+            Dockerfile
             job-chain.sh
           if-no-files-found: error
           retention-days:    5
