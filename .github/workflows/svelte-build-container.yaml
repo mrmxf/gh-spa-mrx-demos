@@ -10,6 +10,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+# global environment
+env:
+  ArtifactsName: spa-mrx-demos
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -42,12 +46,14 @@ jobs:
         name: Bark some context vairables
         run: |
           source ./clogrc/_inc.sh
+          BRANCH=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
           printf "GitHub workflow\n"
           printf "Hub: %19s  %s\n" "whoami"               "$(whoami)"
           printf "Hub: %19s  %s\n" "pwd"                  "$(pwd)"
           printf "Hub: %19s  %s\n" "PATH"                 "$PATH"
           printf "Hub: %19s  %s\n" "vCODE"                "$vCODE"
           printf "Hub: %19s  %s\n" "PROJECT"              "$PROJECT"
+          printf "Hub: %19s  %s\n" "BRANCH"               "$BRANCH"
           printf "Hub: %19s  %s\n" "dockerAcc"            "$dockerAcc"
           printf "Hub: %19s  %s\n" "vars.MRX_DOCKER_NS"   "${{ vars.MRX_DOCKER_NS }}"
           printf "Hub: %19s  %s\n" "dockerBase"           "$dockerBase"
@@ -73,7 +79,7 @@ jobs:
         name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: spa-mrx-demos
+          name: ${{ env.ArtifactsName }}
           path: job-chain.sh
           if-no-files-found: error
           retention-days:    1
@@ -93,12 +99,12 @@ jobs:
         name: Restore artifact
         uses: actions/download-artifact@v4
         with:
-          name: spa-mrx-demos
+          name:  ${{ env.ArtifactsName }}
       -
         name: Install node.js
         uses: actions/setup-node@v4
         with:
-          node-version: lts
+          node-version: latest
           cache: yarn
       -
         name: Install dependencies
@@ -110,7 +116,7 @@ jobs:
         name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name:  spa-mrx-demos
+          name:  ${{ env.ArtifactsName }}
           path: |
             ./build
             job-chain.sh
@@ -138,21 +144,23 @@ jobs:
         name: Restore artifact
         uses: actions/download-artifact@v4
         with:
-          name:   spa-mrx-demos
-
+          name:  ${{ env.ArtifactsName }}
       -
         name: Check website & set env
         run: |
-              #create env from upstream dependencies
+              # create env from upstream dependencies
               source job-chain.sh
-              echo "Deploying website version ($vCODE) from branch ($BRANCH)"
               echo "vCODE=$vCODE"     >> $GITHUB_ENV
               echo "BRANCH=$BRANCH"   >> $GITHUB_ENV
               echo "PROJECT=$PROJECT" >> $GITHUB_ENV
               echo "dockerAcc=$dockerAcc" >> $GITHUB_ENV
               echo "dockerBase=$dockerBase" >> $GITHUB_ENV
+              #
+              echo "----------------------------------------------------------"
+              echo "Deploying website version ($vCODE) from branch ($BRANCH)"
               echo "pushing branch $BRANCH to hub: $dockerAcc/$dockerBase:$vCODE"
-              ls -al ./public
+              echo "--- build folder -----------------------------------------"
+              ls -al ./build
               echo "--- Dockerfile -------------------------------------------"
               cat Dockerfile
       -
