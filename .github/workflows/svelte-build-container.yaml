@@ -32,7 +32,14 @@ jobs:
   bark:
     runs-on: ubuntu-latest
     steps:
-      - name: Bark some context vairables
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      -
+        name: Bark some context vairables
         run: |
           source ./clogrc/_inc.sh
           printf "GitHub workflow\n"
