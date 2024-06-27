@@ -79,7 +79,7 @@ jobs:
         name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.ArtifactsName }}
+          name: "${{ env.ArtifactsName }}-1"
           path: job-chain.sh
           if-no-files-found: error
           retention-days:    1
@@ -99,7 +99,7 @@ jobs:
         name: Restore artifact
         uses: actions/download-artifact@v4
         with:
-          name:  ${{ env.ArtifactsName }}
+          name:  "${{ env.ArtifactsName }}-1"
       -
         name: Install node.js
         uses: actions/setup-node@v4
@@ -116,7 +116,7 @@ jobs:
         name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name:  ${{ env.ArtifactsName }}
+          name:  "${{ env.ArtifactsName }}-2"
           path: |
             ./build
             job-chain.sh
@@ -144,7 +144,7 @@ jobs:
         name: Restore artifact
         uses: actions/download-artifact@v4
         with:
-          name:  ${{ env.ArtifactsName }}
+          name:  "${{ env.ArtifactsName }}-2"
       -
         name: Check website & set env
         run: |
