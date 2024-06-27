@@ -1,0 +1,11 @@
+{
+    "metarexId": "MRX.123.456.789.rny",
+    "media-type": "application/yaml",
+    "name": "NAB RNF yaml",
+    "description": "An input yaml",
+    "timing": "embedded",
+    "treatAs": "text",
+    "mrx": {
+        "specification": ""
+    }
+}

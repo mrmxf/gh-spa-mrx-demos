@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<!--  cdn source:
+	 https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js
+	 https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    -->
+<!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet" />   -->
+
+<head>
+	<meta charset="utf-8" />
+	<script src="jquery.min.js"></script>
+	<script src="semantic.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link href="semantic.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet" />
+
+	<link href="prism-coy-without-shadows.css" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet" />
+	<script src="prism.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="prism-go.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="prism-json.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="prism-python.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="prism-rust.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="prism-r.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="prism-sql.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="prism-yaml.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" type="text/css"/>
+
+	<link rel="icon" href="favicon-rexy.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	%sveltekit.head%
+</head>
+
+<body data-sveltekit-preload-data="hover">
+	<div id="mrxApp" style="display: contents;width:100%; height:100vh;">%sveltekit.body%</div>
+</body>
+
+</html>

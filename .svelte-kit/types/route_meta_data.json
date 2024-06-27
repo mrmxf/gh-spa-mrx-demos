@@ -1,0 +1,58 @@
+{
+	"/": [
+		"src/routes/+page.server.ts",
+		"src/routes/+layout.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/demo01": [
+		"src/routes/demo01/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/demo02": [
+		"src/routes/demo02/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/demo03": [
+		"src/routes/demo03/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/demo04": [
+		"src/routes/demo04/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/demo05": [
+		"src/routes/demo05/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/demo06": [
+		"src/routes/demo06/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/demo07": [
+		"src/routes/demo07/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/demo08": [
+		"src/routes/demo08/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/demo09": [
+		"src/routes/demo09/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/demo10": [
+		"src/routes/demo10/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/demo11": [
+		"src/routes/demo11/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/demo12": [
+		"src/routes/demo12/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/test": [
+		"src/routes/+layout.server.ts"
+	]
+}
