@@ -4,29 +4,39 @@
 	 * ------------------------------------------------------------------------
 	 */
 	export let demoId: number;
-	import Sponsors from '$lib/BannerSponsors.svelte';
-	import DemoNav from '$lib/BannerNav.svelte';
+	export let forcePortrait: boolean = false;
 
-	let bnColor = 'black';
+	import Sponsors from "$lib/BannerSponsors.svelte";
+	import DemoNav from "$lib/BannerNav.svelte";
+
+	import MobileNav from "$lib/BannerMobile.svelte";
+	import MobileSponsors from "$lib/MobileSponsors.svelte";
+
+	let bnColor = "black";
 </script>
 
 <!-- --- grid defined in +page.svelte-------------------------------------- -->
-<div class="sixteen wide column">
-	<div class="stretched row">
-		<div class="ui equal width stackable grid">
-			<div class=" stackable center middle aligned column">
-				<div class="ui {bnColor} segment overviewSeg">
-					<DemoNav {demoId} />
+{#if forcePortrait}
+	<MobileNav  {demoId} />
+	<MobileSponsors  {demoId} />
+{:else}
+	<div class="sixteen wide column">
+		<div class="stretched row">
+			<div class="ui equal width stackable grid">
+				<div class=" stackable center middle aligned column">
+					<div class="ui {bnColor} segment overviewSeg">
+						<DemoNav {demoId} />
+					</div>
 				</div>
-			</div>
-			<div class=" stackable center middle aligned column">
-				<div class="ui {bnColor} segment overviewSeg">
-					<Sponsors {demoId} />
+				<div class=" stackable center middle aligned column">
+					<div class="ui {bnColor} segment overviewSeg">
+						<Sponsors {demoId} />
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+{/if}
 
 <style>
 	.banner {

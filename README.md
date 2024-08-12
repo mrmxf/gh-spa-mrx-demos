@@ -45,14 +45,14 @@ between components
 To create a production version of your app:
 
 ```bash
-# check that the project is clean
-yarn run check
+# import dependencies & check that the project is clean
+yarn && yarn run check
 
 # if you have clog then build the docker container with some help
 [ -n "$(which clog)" ] && clog svelte
 
 # if you don't have clog then just run the build script
-[ -n "$(which clog)" ] && bash clogrc/svelte
+[ -z "$(which clog)" ] && bash clogrc/svelte
 
 # preview the build
 yarn run preview

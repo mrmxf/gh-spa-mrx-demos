@@ -3,11 +3,16 @@
  * ------------------------------------------------------------------------
  * cores for the nab 2024 app
  */
-import { readable, writable, type Writable } from 'svelte/store';
+import { get, readable, writable, derived, type Writable, type Readable } from 'svelte/store';
 import type { MrxSelectedMediaSource, MrxReqRes, MrxEvent, MrxExploreTab } from '$lib/mrx-demo-defs'
 import { nilSource } from '$lib/mrx-demo-defs'
 import cfgSource from '$lib/cfg/mrx-demo-config'
 import sponsorSource from '$lib/cfg/mrx-demo-sponsors'
+
+// the most recent source that was clicked in the navigation panel
+export const pageW = writable(0);
+export const pageH = writable(0);
+export const pageAR: Readable<number> = derived(pageW, $w => $w/get(pageH) )
 
 // the most recent source that was clicked in the navigation panel
 export const source: Writable<MrxSelectedMediaSource> = writable(nilSource);

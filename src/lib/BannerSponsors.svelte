@@ -4,12 +4,13 @@
 	 * ------------------------------------------------------------------------
 	 * display the sponsors of this demo
 	 */
-	import type { MrxSponsor } from '$lib/mrx-demo-defs';
-	import { cfgData, sponsors } from '$lib/mrx-demo-stores';
-	import { onMount } from 'svelte';
-	import QR from './BannerSponsors-qr.svelte';
+	import type { MrxSponsor } from "$lib/mrx-demo-defs";
+	import { cfgData, sponsors } from "$lib/mrx-demo-stores";
+	import { onMount } from "svelte";
+	import QR from "./BannerSponsors-qr.svelte";
 
 	export let demoId: number;
+	export let mobile = false;
 
 	let demoCfg = $cfgData.demo[demoId - 1];
 
@@ -24,8 +25,8 @@
 	let index = 0;
 	let sponsor: MrxSponsor = demoSponsors[index];
 
-	let sponsorWho = sponsor.who ? sponsor.who : '&nbsp;';
-	let sponsorTag = sponsor.tagline ? sponsor.tagline : '&nbsp;';
+	let sponsorWho = sponsor.who ? sponsor.who : "&nbsp;";
+	let sponsorTag = sponsor.tagline ? sponsor.tagline : "&nbsp;";
 
 	onMount(() => {
 		const interval = setInterval(() => {
@@ -40,53 +41,90 @@
 	});
 </script>
 
-<div class="ui stackable equal width grid">
-	<div class="stretched row">
-		<div class="ui middle aligned stackable column">
-			<div class="ui segment">
-				<h4 class="header">{sponsor.name}</h4>
-				<p class="sTag"><span class="ui blue text">{sponsorTag}</span></p>
-				<p class="sWho"><span class="ui grey text">{sponsorWho}</span></p>
-				<p />
-				<div class="ui small horizontal equal width grid">
-					{#if sponsor.homeUrl}
-						<div class="column">
-							<a href={sponsor.homeUrl} target="_blank">
-								<div class="ui fluid centered label">
-									<i class="home icon"></i>
-									<i class="external alternate small blue icon"></i>
-								</div>
-							</a>
-						</div>
-					{/if}
-					{#if sponsor.contactUrl}
-						<div class="column">
-							<a href={sponsor.contactUrl} target="_blank">
-								<div class="ui small fluid centered label">
-									<i class="envelope outline icon"></i>
-									<i class="external alternate small blue icon"></i>
-								</div>
-							</a>
-						</div>
-					{/if}
+{#if mobile}
+	<h4 class="header">
+		Sponsor {sponsor.name}
+		{#if sponsor.homeUrl}
+			<a href={sponsor.homeUrl} target="_blank">
+				<div class="ui label">
+					<i class="home icon"></i>
+					<i class="external alternate small blue icon"></i>
+				</div>
+			</a>
+		{/if}
+		{#if sponsor.contactUrl}
+			<a href={sponsor.contactUrl} target="_blank">
+				<div class="ui small label">
+					<i class="envelope outline icon"></i>
+					<i class="external alternate small blue icon"></i>
+				</div>
+			</a>
+		{/if}
+	</h4>
+{:else}
+	<div class="ui stackable equal width grid">
+		<div class="stretched row">
+			<div class="ui middle aligned stackable column">
+				<div class="ui segment">
+					<h4 class="header">{sponsor.name}</h4>
+					<p class="sTag">
+						<span class="ui blue text">{sponsorTag}</span>
+					</p>
+					<p class="sWho">
+						<span class="ui grey text">{sponsorWho}</span>
+					</p>
+					<p />
+					<div class="ui small horizontal equal width grid">
+						{#if sponsor.homeUrl}
+							<div class="column">
+								<a href={sponsor.homeUrl} target="_blank">
+									<div class="ui fluid centered label">
+										<i class="home icon"></i>
+										<i
+											class="external alternate small blue icon"
+										></i>
+									</div>
+								</a>
+							</div>
+						{/if}
+						{#if sponsor.contactUrl}
+							<div class="column">
+								<a href={sponsor.contactUrl} target="_blank">
+									<div class="ui small fluid centered label">
+										<i class="envelope outline icon"></i>
+										<i
+											class="external alternate small blue icon"
+										></i>
+									</div>
+								</a>
+							</div>
+						{/if}
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="ui center middle aligned stackable column">
-			<div class="ui horizontal equal width segments">
-				<div class="ui center middle aligned segment">
-					<img class="ui image bannerLogo" src={sponsor.logo} alt="sponsor" />
-				</div>
-				<div class="ui middle aligned segment">
-					<QR data={sponsor.qrdata} logo={sponsor.logo} />
+			<div class="ui center middle aligned stackable column">
+				<div class="ui horizontal equal width segments">
+					<div class="ui center middle aligned segment">
+						<img
+							class="ui image bannerLogo"
+							src={sponsor.logo}
+							alt="sponsor"
+						/>
+					</div>
+					<div class="ui middle aligned segment">
+						<QR data={sponsor.qrdata} logo={sponsor.logo} />
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+{/if}
 
 <style>
+	.titlerow {
+		display: inline-flex;
+	}
 	.bannerLogo {
 		object-fit: cover;
 		max-height: 100%;
