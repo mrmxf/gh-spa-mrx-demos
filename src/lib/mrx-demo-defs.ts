@@ -12,6 +12,7 @@
 export type MrxCfgData = {
   environment: MxfCfgEnvironment,
   appearance: MrxCfgAppearance,
+  home: MrxCfgHome,
   demo: MrxDemoCfg[]
 }
 
@@ -60,6 +61,11 @@ export type MrxCfgAppearance = {
   control: MrxCfgPanelProps
   visualize: MrxCfgPanelProps
   explore: MrxCfgPanelProps
+}
+
+/** settings for the appearance of the home page */
+export type MrxCfHome = {
+  titleMd: string
 }
 
 /** properties for an individual panel */

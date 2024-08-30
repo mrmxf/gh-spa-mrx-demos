@@ -5,13 +5,11 @@
 	 * Visualize03
 	 */
 
-	import { cfgData, source, reqRes, exploreTabs } from '$lib/mrx-demo-stores';
-	import { selectedServiceIndex } from './control03-stores';
+	import { DBG, cfgData, source, reqRes, exploreTabs } from '$lib/mrx-demo-stores';
 	import { md } from '$lib/markdown-it';
 	import { MrxExploreEnum, MrxExploreEnumNames } from '$lib/mrx-demo-defs';
 
 	export let demoId: number;
-	let DBG = false;
 
 	// remove warning that demoId is unused
 	demoId = demoId;
@@ -34,7 +32,7 @@
 			<strong>{@html md.renderInline(serviceName)}</strong>
 			{#if $reqRes && $reqRes.length > 0}
 				to type <strong>{MrxExploreEnumNames[$reqRes[last].res.type]}</strong><br />
-				{#if DBG}
+				{#if $DBG}
 					res[{last}], type [{$reqRes[last].res.type}] explore[{$exploreTabs.length - 1}]<br />
 					url: {$reqRes[last].res.bUrl}
 				{/if}

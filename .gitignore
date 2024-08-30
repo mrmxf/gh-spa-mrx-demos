@@ -14,7 +14,8 @@ node_modules/
 # ignore the hugo & mrmxf build artifacts
 clogrc/core
 
-# ignore the tmp folder but not the readme inside it
+# ignore the tmp files & tmp folder but not the readme inside it
+tmp-*
 tmp/*
 !tmp/readme.md
 

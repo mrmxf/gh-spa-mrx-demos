@@ -3,22 +3,15 @@
 	 * This is the navigation sidebar for the metarex demos
 	 */
 
-	import {
-		cfgData,
-		cfgEnv,
-		pageW,
-		pageH,
-		pageAR,
-	} from "$lib/mrx-demo-stores";
+	 import { MOBILE } from "$lib/mrx-demo-stores";
 	import { afterNavigate } from "$app/navigation";
 	import { base } from "$app/paths";
 	import { onMount } from "svelte";
-	import { md } from "$lib/markdown-it";
+	import { dev as DEV } from "$app/environment";
+
 	// @ts-ignore ts(6137)
 	import type { JQueryStatic } from "@types/jquery";
-	import Sponsors from "$lib/BannerSponsors.svelte";
 	export let demoId;
-	export let mobile = false;
 
 	let up = true;
 	let jquery: JQueryStatic | null = null;
@@ -28,6 +21,7 @@
 	let referrer: string;
 	let next: number;
 	let prev: number;
+	let description = "";
 
 	const buttonClass = "ui label";
 
@@ -72,11 +66,9 @@
 		previousPage = from?.url.pathname || previousPage;
 	});
 
-	let modeHtml = "";
-	let mobileModeHtml = "";
-	if ($cfgEnv.name == "development") {
-		modeHtml = `<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ui red text"><strong>Dev</strong> mode</span>`;
-		mobileModeHtml = `<small><span class="ui red text"><strong>Dev:</strong></span></small>`;
+	let dev = { btn: "", txt1: "", txt2: "" };
+	if (DEV) {
+		dev = { btn: "red", txt1: "DEV", txt2: "MODE" };
 	}
 
 	// //use the fomantic javascript to redraw the contents of the selector
@@ -88,89 +80,72 @@
 	// 	});
 </script>
 
-{#if mobile}
 <div class="titlerow">
-	<div id="burger" class="ui basic icon button">
-		<i class="hamburger icon"></i>
-	</div>
-	<div class="ui popup">
-		<a class="center aligned item" href={nextDemoId}>
-			<i class="arrow right icon"></i> next demo
-		</a>
-		<br />
-		<a class="center aligned item" href={prevDemoId}>
-			<i class="arrow left icon"></i> previous demo
-		</a>
-		<br />
-		<a class="center aligned item" href="/">
-			<i class="home icon"></i> home
-		</a>
-		<br />
-		<a class="center aligned item" href="/app/register">
-			<i class="id card outline icon"></i> Register
-		</a>
-		<br />
-		<a class="center aligned item" href="/app/demos">
-			<i class="play circle outline icon"></i> Demos
-		</a>
-		<br />
-		<a class="center aligned item" href="/contact">
-			<i class="mail icon"></i> Contact
-		</a>
-	</div>
-	<div class= "ui segment">
-		<h2 class="ui header">
-			{@html mobileModeHtml}
-			{@html md.renderInline($cfgData.demo[demoId - 1].description)}
-		</h2>
-
-		<Sponsors {demoId} mobile={true} />
-	</div>
-</div>
-{:else}
-	<div class="ui grid">
-		<div class="ui two wide stretched column">
-			<div class="segment">
-				<div class="ui compact vertical icon menu">
-					<a class="center aligned item" href={nextDemoId}>
-						<i class="arrow right icon"></i>
-					</a>
-
-					<a class="center aligned item" href={prevDemoId}>
-						<i class="arrow left icon"></i>
-					</a>
-
-					<a class="center aligned item" href={fullBase}>
-						<i class="home icon"></i>
-					</a>
-
-					<!-- <a class="center aligned item" href={'#'} on:click={openFullscreen}>
-					<i class="expand icon"></i>
-				</a> -->
-				</div>
-			</div>
+	<div class="ui vertical menu" style="display:flex;width:5rem;">
+		<div id="burger" class="ui {dev.btn} basic icon button">
+			{dev.txt1}<br /><i class="hamburger icon"></i>
 		</div>
-		{#if $cfgData.demo[demoId - 1]}
-			<div class="ui fourteen wide left middle aligned stretched column">
-				<div class="ui segment">
-					<h1 class="ui header">
-						<span class="mini left floating ui orange label">
-							<h4>{demoId}</h4>
-						</span>
-						{@html md.renderInline(
-							$cfgData.demo[demoId - 1].description,
-						)}
-						{@html modeHtml}
-					</h1>
-				</div>
-			</div>
+		{#if !$MOBILE}
+		<div id="prev" class="ui {dev.btn} basic icon button">
+			<a class="center aligned item" href={nextDemoId}>
+				<i class="arrow right icon"></i>
+			</a>
+		</div>
+		<div id="prev" class="ui {dev.btn} basic icon button">
+			<a class="center aligned item" href={prevDemoId}>
+				<i class="arrow left icon"></i>
+			</a>
+		</div>
 		{/if}
+		<div class="ui popup">
+			<a class="center aligned item" href={nextDemoId}>
+				<i class="arrow right icon"></i> next demo
+			</a>
+			<br />
+			<a class="center aligned item" href={prevDemoId}>
+				<i class="arrow left icon"></i> previous demo
+			</a>
+			<br />
+			<a class="center aligned item" href="/">
+				<i class="home icon"></i> home
+			</a>
+			<br />
+			<a class="center aligned item" href="/app/register">
+				<i class="id card outline icon"></i> Register
+			</a>
+			<br />
+			<a class="center aligned item" href="/app/demos">
+				<i class="play circle outline icon"></i> Demos
+			</a>
+			<br />
+			<a class="center aligned item" href="/contact">
+				<i class="mail icon"></i> Contact
+			</a>
+		</div>
 	</div>
-{/if}
+
+</div>
 
 <style>
 	.titlerow {
 		display: flex;
-		align-items: flex-start
+		align-items: flex-start;
+	}
+	.flexBannerWrapper {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: stretch;
+		align-content: flex-start;
+		gap: 1em 1em; /* row, column gap */
+	}
+	.flexMenu {
+		display: flex;
+		flex: none;
+	}
+	.flexTitle {
+		display: flex;
+		flex-grow: 4;
+		max-width: 50%;
 	}
 </style>

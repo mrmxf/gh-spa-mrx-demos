@@ -6,14 +6,13 @@
 	 */
 
 	import type { MrxMediaSource, MrxEvent } from '$lib/mrx-demo-defs';
-	import { rundownSource, source, rundownEvents, timeOfDay } from '$lib/mrx-demo-stores';
+	import { DBG, source, rundownEvents, timeOfDay } from '$lib/mrx-demo-stores';
 	import { refreshEventList } from '$lib/rundownUtils';
 	import Timer from '$lib/Timer.svelte';
 
 	export let sources: MrxMediaSource[];
 	export let rundown: MrxEvent[];
 
-	let DBG = true;
 	let eventList: MrxEvent[] = [];
 
 	let heartbeat: number;

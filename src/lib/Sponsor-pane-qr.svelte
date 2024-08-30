@@ -4,8 +4,8 @@
 	 * ------------------------------------------------------------------------
 	 * insert a qr code for the paylod of this sponsor
 	 */
-	import QR from '@svelte-put/qr/svg/QR.svelte';
-	export let data: string;
+	 import QR from '@svelte-put/qr/svg/QR.svelte';
+	 export let data: string;
 	export let logo: string;
 </script>
 

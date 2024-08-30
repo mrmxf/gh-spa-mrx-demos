@@ -9,10 +9,13 @@ import { nilSource } from '$lib/mrx-demo-defs'
 import cfgSource from '$lib/cfg/mrx-demo-config'
 import sponsorSource from '$lib/cfg/mrx-demo-sponsors'
 
-// the most recent source that was clicked in the navigation panel
+// --- DISPLAY MODES  ---------------------------------------------------------
 export const pageW = writable(0);
 export const pageH = writable(0);
 export const pageAR: Readable<number> = derived(pageW, $w => $w/get(pageH) )
+//display in mobile mode when the width is less than 800 pixels
+//used to switch between desktop and mobile layouts (fomantic breaks at 768px)
+export const MOBILE: Readable<boolean> = derived(pageW, $w => ($w<800) )
 
 // the most recent source that was clicked in the navigation panel
 export const source: Writable<MrxSelectedMediaSource> = writable(nilSource);
@@ -45,3 +48,6 @@ export const cfgEnv = readable(envSource)
 
 // the sponsor data
 export const sponsors = readable(sponsorSource)
+
+// debug mode
+export const DBG = writable(false)

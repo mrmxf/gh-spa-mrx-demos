@@ -9,15 +9,16 @@
 	 * - $previous == undefined || previous static click || rundown just
 	 * - $next == undefined || upcoming selection
 	 */
-	import type { MrxMediaSource, MrxEvent } from '$lib/mrx-demo-defs';
-	import { cfgData } from '$lib/mrx-demo-stores';
-	import NavStatic from './NavStatic.svelte';
-	import NavRundown from './NavRundown.svelte';
+	import type { MrxMediaSource, MrxEvent } from "$lib/mrx-demo-defs";
+	import { cfgData } from "$lib/mrx-demo-stores";
+	import NavStatic from "./NavStatic.svelte";
+	import NavRundown from "./NavRundown.svelte";
 
 	export let demoId: number;
 	export let sources: MrxMediaSource[];
-	export let thumbSize = 'small';
+	export let thumbSize = "small";
 	export let rundown: MrxEvent[] = []; //defaults to empty so that typescript errors are suppressed.
+	export let forcePortrait = false;
 
 	demoId = demoId;
 	let width = $cfgData.appearance.navigate.width;
@@ -28,7 +29,7 @@
 	{#if rundown && rundown.length > 0}
 		<NavRundown {sources} {rundown} />
 	{:else if sources}
-		<NavStatic {sources} {thumbSize} />
+		<NavStatic {sources} {thumbSize} {forcePortrait} />
 	{:else}
 		No Sources - This should not happen.
 	{/if}

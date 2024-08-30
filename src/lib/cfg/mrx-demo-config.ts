@@ -46,6 +46,13 @@ const cfg: MrxCfgData = {
       color: "red"
     }
   },
+  home: {
+    titleMd: `
+#### IBC 20024 - come and see us on Sunday at 17:00 14.AI03
+
+Win a cuddly Rexy - [sign up here to do the Treasure Hunt](https://bit.ly/rexy-ibc-2024)
+    `
+  },
   demo: [
     {
       demoId: 1,
@@ -351,7 +358,7 @@ giving you control over price and bandwidth.
 A bitstream analyser quickly parses a slice of the MXF file and creates a
 simple JSON giving us the average bits/frame of each echelon.
 Click a clip to see.`,
-      demoImages: ["demo09/bs501-p01-stree.png"],
+      demoImages: ["demo09/bs501-p01-stree.png", "demo09/d9-vc6-00.jpg", "demo09/d9-vc6-01.jpg", "demo09/d9-vc6-02.jpg", "demo09/d9-vc6-03.jpg", "demo09/d9-vc6-04.jpg"],
       sponsorIds: [
         "v-nova",
         "metarex",

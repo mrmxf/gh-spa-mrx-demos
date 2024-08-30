@@ -5,12 +5,10 @@
 	 * ------------------------------------------------------------------------
 	 * Explore tabs - selection header and body components
 	 */
-	import { exploreTabs, activeExploreTabNumber } from '$lib/mrx-demo-stores';
+	import { DBG, exploreTabs, activeExploreTabNumber } from '$lib/mrx-demo-stores';
 	// @ts-ignore ts(6137)
 	import type { JQueryStatic } from '@types/jquery';
 	import { MrxExploreIcon } from './mrx-demo-defs';
-
-	export let DBG = false;
 
 	let jquery: JQueryStatic | null = null;
 	let numTabs: number;
@@ -88,9 +86,9 @@
 	</div>
 </div>
 
-{#if DBG}
+{#if $DBG}
 	<div class="ui fluid center middle aligned label">
-		DBG(tabIndex={$activeExploreTabNumber} of
+		$DBG(tabIndex={$activeExploreTabNumber} of
 		{$exploreTabs.length} tabs)
 	</div>
 {/if}

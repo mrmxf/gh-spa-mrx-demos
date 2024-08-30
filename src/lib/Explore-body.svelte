@@ -4,15 +4,13 @@
 	 * ------------------------------------------------------------------------
 	 * Explore-body - display the body of the selected tab
 	 */
-	import { source, exploreTabs, activeExploreTabNumber } from '$lib/mrx-demo-stores';
+	import { DBG, exploreTabs, activeExploreTabNumber } from '$lib/mrx-demo-stores';
 	import { base } from '$app/paths';
 	import PrismPane from '$lib/PrismPane.svelte';
 	import { md } from '$lib/markdown-it';
 	import type { MrxExploreTab } from '$lib/mrx-demo-defs';
 	import { MrxExploreEnumNames } from '$lib/mrx-demo-defs';
 	import { MrxExploreEnum, MrxExploreViewers, MrxExploreView } from './mrx-demo-defs';
-
-	let DBG = false;
 
 	let tabsExist = false;
 	let type: MrxExploreEnum;
@@ -46,7 +44,7 @@
 </script>
 
 {#if tabsExist}
-	{#if DBG}
+	{#if $DBG}
 		{@html md.render(`Tab[${$activeExploreTabNumber - 1}] type=${MrxExploreEnumNames[type]}`)}
 	{/if}
 	{#if type == MrxExploreEnum.Home}
@@ -54,7 +52,7 @@
 	{:else if viewer == MrxExploreViewers.Markdown}
 		<div style="height:100%;">{@html md.render(bodyStr)}</div>
 	{:else if viewer == MrxExploreViewers.Image}
-		{#if DBG}url: {tab.blobUrl}{/if}
+		{#if $DBG}url: {tab.blobUrl}{/if}
 		<img class="ui medium image" src={tab.blobUrl} alt="response" />
 	{:else if viewer == MrxExploreViewers.Audio}
 		Pending: WAV player for .wav file

@@ -37,6 +37,7 @@ declare module '$env/static/private' {
 	export const npm_package_devDependencies_vite: string;
 	export const npm_package_devDependencies__sveltejs_vite_plugin_svelte: string;
 	export const npm_config_init_version: string;
+	export const BITBUCKET_REPO_SLUG: string;
 	export const SHLVL: string;
 	export const HOME: string;
 	export const npm_package_devDependencies__typescript_eslint_parser: string;
@@ -53,6 +54,7 @@ declare module '$env/static/private' {
 	export const npm_config_version_tag_prefix: string;
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const npm_package_scripts_check: string;
+	export const BITBUCKET_WORKSPACE: string;
 	export const COLORTERM: string;
 	export const WSL_DISTRO_NAME: string;
 	export const npm_package_description: string;
@@ -74,6 +76,7 @@ declare module '$env/static/private' {
 	export const npm_package_devDependencies__types_jquery: string;
 	export const npm_package_scripts_check_watch: string;
 	export const npm_package_private: string;
+	export const TSG_BUCKET: string;
 	export const npm_package_devDependencies__typescript_eslint_eslint_plugin: string;
 	export const npm_package_scripts_lint: string;
 	export const npm_config_registry: string;
@@ -82,6 +85,7 @@ declare module '$env/static/private' {
 	export const npm_package_devDependencies__types_markdown_it: string;
 	export const PATH: string;
 	export const NODE: string;
+	export const BITBUCKET_TOKEN: string;
 	export const npm_package_name: string;
 	export const XDG_RUNTIME_DIR: string;
 	export const npm_package_scripts_test_integration: string;
@@ -174,6 +178,7 @@ declare module '$env/dynamic/private' {
 		npm_package_devDependencies_vite: string;
 		npm_package_devDependencies__sveltejs_vite_plugin_svelte: string;
 		npm_config_init_version: string;
+		BITBUCKET_REPO_SLUG: string;
 		SHLVL: string;
 		HOME: string;
 		npm_package_devDependencies__typescript_eslint_parser: string;
@@ -190,6 +195,7 @@ declare module '$env/dynamic/private' {
 		npm_config_version_tag_prefix: string;
 		VSCODE_GIT_ASKPASS_NODE: string;
 		npm_package_scripts_check: string;
+		BITBUCKET_WORKSPACE: string;
 		COLORTERM: string;
 		WSL_DISTRO_NAME: string;
 		npm_package_description: string;
@@ -211,6 +217,7 @@ declare module '$env/dynamic/private' {
 		npm_package_devDependencies__types_jquery: string;
 		npm_package_scripts_check_watch: string;
 		npm_package_private: string;
+		TSG_BUCKET: string;
 		npm_package_devDependencies__typescript_eslint_eslint_plugin: string;
 		npm_package_scripts_lint: string;
 		npm_config_registry: string;
@@ -219,6 +226,7 @@ declare module '$env/dynamic/private' {
 		npm_package_devDependencies__types_markdown_it: string;
 		PATH: string;
 		NODE: string;
+		BITBUCKET_TOKEN: string;
 		npm_package_name: string;
 		XDG_RUNTIME_DIR: string;
 		npm_package_scripts_test_integration: string;

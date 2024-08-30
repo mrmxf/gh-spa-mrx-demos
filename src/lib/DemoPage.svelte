@@ -4,44 +4,53 @@
 	 * ------------------------------------------------------------------------
 	 * demo page template for most pages
 	 */
-	import type { MrxMediaSource, MrxEvent } from '$lib/mrx-demo-defs';
-	import {pageW, pageH, pageAR} from '$lib/mrx-demo-stores'
-	import Navigate from '$lib/Navigate.svelte';
-	import Explore from '$lib/ExplorePane.svelte';
+	import type { MrxMediaSource, MrxEvent } from "$lib/mrx-demo-defs";
+	import { pageW, pageH, pageAR, DBG, MOBILE } from "$lib/mrx-demo-stores";
+	import DEBUG from "$lib/Debug.svelte";
+	import Navigate from "$lib/Navigate.svelte";
+	import Explore from "$lib/ExplorePane.svelte";
+	import TMP_QR from "$lib/tmp-qr-page.svelte";
 
 	export let demoId: number;
 	export let sources: MrxMediaSource[];
-	export let rundown: MrxEvent[]= []
+	export let rundown: MrxEvent[] = [];
 	export let showNav = true;
 	export let showExplore = true;
 
 	// window dimensions - svelte binding
-	let innerWidth = 0
-	let innerHeight = 0
+	let innerWidth = 0;
+	let innerHeight = 0;
 
-	$: {pageW.set(innerWidth);
-		pageH.set(innerHeight)}
-	$: forcePortrait = $pageW < 0.8* $pageH
+	$: {
+		pageW.set(innerWidth);
+		pageH.set(innerHeight);
+	}
+	$: forcePortrait = $pageW < 0.8 * $pageH;
 
-	import DemoBanner from '$lib/Banner.svelte';
-	import Overview from '$lib/Overview.svelte';
+	$DBG = false;
+
+	import DemoBanner from "$lib/Banner.svelte";
+	import Overview from "$lib/Overview.svelte";
 </script>
+
 <svelte:window bind:innerWidth bind:innerHeight />
 
-<div class="ui stackable grid">
-	<div class="ui stretched row">
-		<DemoBanner {demoId} {forcePortrait} />
-	</div>
-	<div class=" ui stretched row">
-		<Overview {demoId} />
-	</div>
+<DEBUG />
+<div class="ui stackable segments">
+	<DemoBanner {demoId} />
+	<Overview {demoId} />
 	<div class=" ui stretched row">
 		<div class="sixteen wide column">
 			<div class="ui demoSeg orange segment">
 				<div class="ui stackable grid">
 					<div class="ui stretched row">
 						{#if showNav}
-							<Navigate {demoId} {sources}  {rundown} />
+							<Navigate
+								{demoId}
+								{sources}
+								{rundown}
+								{forcePortrait}
+							/>
 						{/if}
 						<!-- --- Custom Page columns go here -------------- -->
 						<slot />

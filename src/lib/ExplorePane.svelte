@@ -5,14 +5,13 @@
 	 * Common Explore Pane - a set of tabs (selected Header+body) components
 	 */
 
-	import { cfgData, source, exploreTabs, activeExploreTabNumber } from '$lib/mrx-demo-stores';
+	import { DBG, cfgData, source, exploreTabs, activeExploreTabNumber } from '$lib/mrx-demo-stores';
 
 	import TabSelect from '$lib/Explore-selector.svelte';
 	import TabBody from '$lib/Explore-body.svelte';
 	import { type MrxCfgData, type MrxExploreTab, MrxExploreEnum } from './mrx-demo-defs';
 
 	export let demoId: number;
-	export let DBG = false;
 
 	let width = $cfgData.appearance.explore.width;
 	let color = $cfgData.appearance.explore.color;
@@ -47,7 +46,7 @@
 
 <div id="expore-div" bind:clientHeight={height} class="ui {width} wide stackable column" style="{paneHeight}">
 	<div class="ui {color} message" style="height:100%;">
-		{#if DBG}<p class="small">
+		{#if $DBG}<p class="small">
 				explore: {height}px, source: {$source ? $source.name : 'none'}, #tabs: {$exploreTabs.length}
 			</p>{/if}
 		<TabSelect />

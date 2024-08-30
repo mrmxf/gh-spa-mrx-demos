@@ -4,13 +4,13 @@
  * make a call to the MrxAppServer
  */
 
-import { reqRes, exploreTabs, cfgEnv } from '$lib/mrx-demo-stores';
+import { DBG, reqRes, exploreTabs, cfgEnv } from '$lib/mrx-demo-stores';
 import { get } from 'svelte/store';
 import type { MrxServiceData, MrxMediaSource, MrxReqRes, MrxPayload, MrxReqResExplore, MrxRegisterEntry } from '$lib/mrx-demo-defs';
 import { MrxExploreEnum, MrxExploreEnumNames } from '$lib/mrx-demo-defs';
 import { base } from '$app/paths';
 
-const DBG = true
+var localDBG = get(DBG)
 
 const demoSvcUrl = get(cfgEnv).path.mrxServiceUrl
 
@@ -36,13 +36,13 @@ async function fillPayload(type: MrxExploreEnum, payload: MrxPayload, res: Respo
     case MrxExploreEnum.Jpeg:
     case MrxExploreEnum.Png:
     case MrxExploreEnum.Webp:
-      if (DBG) console.log('Processing request image');
+      if (localDBG) console.log('Processing request image');
       payload.blobData = await res.blob();
       payload.size = payload.blobData.size;
       payload.bUrl = URL.createObjectURL(payload.blobData);
       return payload.blobData;
     default:
-      if (DBG) console.log('Processing request blob');
+      if (localDBG) console.log('Processing request blob');
       payload.blobData = await res.blob();
       payload.size = payload.blobData.size;
       return payload.blobData;
@@ -103,19 +103,19 @@ export async function mrxServiceDemo(source: MrxMediaSource, service: MrxService
     body: (newRR.req.stringData ? newRR.req.stringData : newRR.req.blobData)
   };
 
-  if (DBG) console.log(service.reqUrl);
+  if (localDBG) console.log(service.reqUrl);
 
   const response = await fetch(reqUrl, param)
     .then(async (res) => {
       if (!res.ok) {
         throw new Error(`HTTP error: ${res.status}`);
       }
-      if (DBG) console.log(` generic reg fetch -- OK`);
+      if (localDBG) console.log(` generic reg fetch -- OK`);
       //fill in the result payload
       return await fillPayload(newRR.res.type, newRR.res, res);
     })
     .catch((error) => {
-      if (DBG) console.log(`Could not fetch ${reqUrl}: ${error}`);
+      if (localDBG) console.log(`Could not fetch ${reqUrl}: ${error}`);
     });
   // update the store with the new results of the ETL call
   reqRes.set([...get(reqRes), newRR])
