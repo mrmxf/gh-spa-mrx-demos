@@ -4,33 +4,43 @@
 	 * ------------------------------------------------------------------------
 	 * The overview pane to explain what's going on
 	 */
-	import type { MrxSponsor } from "$lib/mrx-demo-defs";
-	import { cfgData, sponsors } from "$lib/mrx-demo-stores";
+	import type { MrxDemoFlow } from "$lib/mrx-demo-defs";
+	import { cfgData, MOBILE, DBG } from "$lib/mrx-demo-stores";
 	import { md } from "$lib/markdown-it";
 	import { base } from "$app/paths";
 	import { onMount } from "svelte";
 
+	$DBG = true;
+
 	export let demoId: number;
-	export let forcePortrait = false;
 
 	let demoCfg = $cfgData.demo[demoId - 1];
 	let ovColor = "purple";
 
-	//make an array of graphics for this demo
-	let demoGfx: string[] = [];
-	demoCfg.demoImages.forEach((gfx) => {
-		let url = gfx.startsWith("http") ? gfx : `${base}/${gfx}`;
-		demoGfx.push(url);
+	//make an array of panels for this demo
+	let panels: MrxDemoFlow[] = [];
+	demoCfg.flowPanels.forEach((p) => {
+		let t: MrxDemoFlow = {};
+		if (p.img) {
+			//# fix image url for local / online
+			t.img = p.img.startsWith("http") ? p.img : `${base}/${p.img}`;
+		}
+		if (p.md) {
+			t.md = p.md;
+		}
+		panels.push(t);
 	});
 
 	let dwellMilliseconds = $cfgData.appearance.overviewDwellSecs * 1000;
-	let gfxNum = 0;
+	let panelIndex = 0;
+	let pnl: MrxDemoFlow = panels[0];
 
 	onMount(() => {
 		const interval = setInterval(() => {
-			gfxNum += 1;
-			let limit = forcePortrait ? demoGfx.length + 1 : demoGfx.length;
-			gfxNum = gfxNum == limit ? 0 : gfxNum;
+			panelIndex += 1;
+			let limit = panels.length;
+			panelIndex = panelIndex == limit ? 0 : panelIndex;
+			pnl = panels[panelIndex];
 		}, dwellMilliseconds);
 
 		return () => {
@@ -39,10 +49,10 @@
 	});
 </script>
 
-{#if forcePortrait}
+{#if $MOBILE}
 	<div class="sixteen wide column">
 		<div class="ui {ovColor} segment overviewSeg">
-			{#if gfxNum == 0}
+			{#if panelIndex == 0}
 				<div class="maxImg description" style="overflow:hidden;">
 					{@html md.render(demoCfg.demoSummary)}
 				</div>
@@ -50,35 +60,31 @@
 				<div class="ui image cImg">
 					<img
 						class=" oImg"
-						src={demoGfx[gfxNum - 1]}
-						alt="demo graphic {gfxNum - 1}"
+						src={pnl.img}
+						alt="demo graphic {panelIndex - 1}"
 					/>
 				</div>
 			{/if}
 		</div>
 	</div>
 {:else}
-	<div class="sixteen wide column">
-		<div class="ui equal width stackable grid">
-			<div class="stretched stackable column">
-				<div class="ui {ovColor} segment overviewSeg">
-					<div class="maxImg description" style="overflow:hidden;">
-						{@html md.render(demoCfg.demoSummary)}
-					</div>
+	<div class="ui equal width segments">
+		{#if pnl.md}
+			<div class="ui {ovColor} segment overviewSeg">
+				{@html md.render(pnl.md)}
+			</div>
+		{/if}
+		{#if pnl.img}
+			<div class="ui {ovColor} segment overviewSeg">
+				<div class="ui image cImg">
+					<img
+						class=" oImg"
+						src={pnl.img}
+						alt="demo graphic {panelIndex}"
+					/>
 				</div>
 			</div>
-			<div class="stretched stackable column">
-				<div class="ui {ovColor} segment overviewSeg">
-					<div class="ui image cImg">
-						<img
-							class=" oImg"
-							src={demoGfx[gfxNum]}
-							alt="demo graphic {gfxNum}"
-						/>
-					</div>
-				</div>
-			</div>
-		</div>
+		{/if}
 	</div>
 {/if}
 

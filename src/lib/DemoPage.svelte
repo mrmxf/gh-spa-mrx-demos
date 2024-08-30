@@ -7,9 +7,11 @@
 	import type { MrxMediaSource, MrxEvent } from "$lib/mrx-demo-defs";
 	import { pageW, pageH, pageAR, DBG, MOBILE } from "$lib/mrx-demo-stores";
 	import DEBUG from "$lib/Debug.svelte";
+
+	import Banner from "$lib/Banner.svelte";
+	import FlowPane from "$lib/Flow-Pane.svelte";
 	import Navigate from "$lib/Navigate.svelte";
 	import Explore from "$lib/ExplorePane.svelte";
-	import TMP_QR from "$lib/tmp-qr-page.svelte";
 
 	export let demoId: number;
 	export let sources: MrxMediaSource[];
@@ -28,17 +30,14 @@
 	$: forcePortrait = $pageW < 0.8 * $pageH;
 
 	$DBG = false;
-
-	import DemoBanner from "$lib/Banner.svelte";
-	import Overview from "$lib/Overview.svelte";
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
 <DEBUG />
 <div class="ui stackable segments">
-	<DemoBanner {demoId} />
-	<Overview {demoId} />
+	<Banner {demoId} />
+	<FlowPane {demoId} />
 	<div class=" ui stretched row">
 		<div class="sixteen wide column">
 			<div class="ui demoSeg orange segment">

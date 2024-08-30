@@ -130,6 +130,7 @@
 	.titlerow {
 		display: flex;
 		align-items: flex-start;
+		height:100%;
 	}
 	.flexBannerWrapper {
 		flex-direction: row;

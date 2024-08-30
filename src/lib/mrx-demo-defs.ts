@@ -16,6 +16,12 @@ export type MrxCfgData = {
   demo: MrxDemoCfg[]
 }
 
+/** the configuration information for a flow explainer  */
+export interface MrxDemoFlow {
+  md?: string,
+  img?: string
+}
+
 /** the configuration information for an individual demo  */
 export interface MrxDemoCfg {
   demoId: number;
@@ -26,7 +32,7 @@ export interface MrxDemoCfg {
   altText: string
   body: string
   demoSummary: string
-  demoImages: string[]
+  flowPanels: MrxDemoFlow[],
   sponsorIds: string[]
   exploreMd?: string
 }
@@ -64,7 +70,7 @@ export type MrxCfgAppearance = {
 }
 
 /** settings for the appearance of the home page */
-export type MrxCfHome = {
+export type MrxCfgHome = {
   titleMd: string
 }
 

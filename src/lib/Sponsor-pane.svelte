@@ -39,10 +39,10 @@
 			clearInterval(interval);
 		};
 	});
-	$: sponsorPane = `width:${Math.floor($pageW * 0.45)}px;`;
+	$: sponsorPane = `width:${Math.floor($pageW * 0.45)}px;max-height:100%;`;
 	$: spLogo = `width:${Math.floor($pageW * 0.45 * 0.3)}px;height:${Math.floor($pageW * 0.45 * 0.3)}px;`;
-	$: spCard = `width:70%;`;
-	$: spQR = `width:30%;`;
+	$: spCard = `width:70%;max-height:100%;`;
+	$: spQR = `width:30%;;max-height:100%;`;
 </script>
 
 {#if $MOBILE}

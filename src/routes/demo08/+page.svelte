@@ -13,7 +13,7 @@
 	const sources: MrxMediaSource[] = data.sources;
 
 	import DemoBanner from '$lib/Banner.svelte';
-	import Overview from '$lib/Overview.svelte';
+	import FlowPane from '$lib/Flow-Pane.svelte';
 	import Control from './Control08.svelte';
 	import Explore from '$lib/ExplorePane.svelte';
 	import Navigate from '$lib/Navigate.svelte';
@@ -22,7 +22,7 @@
 
 <div class="ui fluid purple segment">
 	<DemoBanner {demoId} />
-	<Overview {demoId} />
+	<FlowPane {demoId} />
 
 	<div class="ui orange segment">
 		<div class="ui grid">

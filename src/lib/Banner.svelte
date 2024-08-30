@@ -21,7 +21,7 @@
 </script>
 
 <!-- --- mobile variant has fewer segments--------------------------------- -->
-<div class="ui horizontal segments">
+<div class="ui horizontal segments" style="max-height:20vh;">
 	{#if $MOBILE}
 		<BannerNav {demoId} />
 		<div class="ui segment">
