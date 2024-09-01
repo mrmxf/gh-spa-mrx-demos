@@ -25,9 +25,6 @@
 	let index = 0;
 	let sponsor: MrxSponsor = demoSponsors[index];
 
-	let sponsorWho = sponsor.who ? sponsor.who : "&nbsp;";
-	let sponsorTag = sponsor.tagline ? sponsor.tagline : "&nbsp;";
-
 	onMount(() => {
 		const interval = setInterval(() => {
 			index += 1;
@@ -39,16 +36,14 @@
 			clearInterval(interval);
 		};
 	});
-	$: sponsorPane = `width:${Math.floor($pageW * 0.45)}px;max-height:100%;`;
-	$: spLogo = `width:${Math.floor($pageW * 0.45 * 0.3)}px;height:${Math.floor($pageW * 0.45 * 0.3)}px;`;
-	$: spCard = `width:70%;max-height:100%;`;
-	$: spQR = `width:30%;;max-height:100%;`;
+	$: sponsorWho = sponsor.who ? sponsor.who : " ";
+	$: sponsorTag = sponsor.tagline ? sponsor.tagline : " ";
 </script>
 
 {#if $MOBILE}
 	{#if justLogo}
 		<a href={sponsor.contactUrl} target="_blank">
-			<div class="ui basic segment">
+			<div class="sLogo ui basic segment">
 				<img
 					class="ui top aligned tiny image"
 					src={sponsor.logo}
@@ -79,19 +74,24 @@
 		</p>
 	{/if}
 {:else}
-	<div class="ui horizontal segments" style={sponsorPane}>
-		<div class="fluid segment" style={spCard}>
-			<div class="ui horizontal segments">
-				<div class="ui center middle aligned segment" style={spLogo}>
-					<a href={sponsor.contactUrl} target="_blank">
+	<div class=" ui horizontal segments clamped">
+		<div class=" fluid segment clamped">
+			<div class=" ui horizontal segments clamped" style="margin: 0 auto;">
+				<div class=" ui center middle aligned segment clamped">
+					<a
+						class="clamped"
+						href={sponsor.contactUrl}
+						target="_blank"
+					>
 						<img
-							class="ui image bLogo"
+							class="clamped"
 							src={sponsor.logo}
 							alt="sponsor"
+							style="display:inline-block;object-fit:contain;min-width:50px;min-height:50px;"
 						/>
 					</a>
 				</div>
-				<div class="ui segment" style="spText">
+				<div class=" ui segment clamped">
 					<h4 class="header">{sponsor.name}</h4>
 					<p class="sTag">
 						<span class="ui blue text">{sponsorTag}</span>
@@ -99,46 +99,42 @@
 					<p class="sWho">
 						<span class="ui grey text">{sponsorWho}</span>
 					</p>
-					<p />
+					<div class="ui horizontal basic equal width segments" style="margin: 0 auto;">
+						{#if sponsor.homeUrl}
+							<div class="ctr segment">
+								<a href={sponsor.homeUrl} target="_blank">
+									<div class="ui centered label">
+										<i class="home icon"></i>
+										<i class="external alternate blue icon"></i>
+									</div>
+								</a>
+							</div>
+						{/if}
+						{#if sponsor.contactUrl}
+							<div class="ctr segment" style="max-height:100%">
+								<a href={sponsor.contactUrl} target="_blank">
+									<div class="ui small centered label">
+										<i class="envelope outline icon"></i>
+										<i class="external alternate blue icon"></i>
+									</div>
+								</a>
+							</div>
+						{/if}
+					</div>
+
 				</div>
 			</div>
 
 			<div class="segment">
-				<div class="ui horizontal basic equal width segments">
-					{#if sponsor.homeUrl}
-						<div class="ctr segment">
-							<a href={sponsor.homeUrl} target="_blank">
-								<div class="ui centered label">
-									<i class="home icon"></i>
-									<i class="external alternate blue icon"></i>
-								</div>
-							</a>
-						</div>
-					{/if}
-					{#if sponsor.contactUrl}
-						<div class="ctr segment">
-							<a href={sponsor.contactUrl} target="_blank">
-								<div class="ui small centered label">
-									<i class="envelope outline icon"></i>
-									<i class="external alternate blue icon"></i>
-								</div>
-							</a>
-						</div>
-					{/if}
-				</div>
 			</div>
 		</div>
-		<div class="ui segment" style={spQR}>
+		<div class="ui segment" style="width:30%;max-height:100%;">
 			<QR data={sponsor.qrdata} logo={sponsor.logo} />
 		</div>
 	</div>
 {/if}
 
 <style>
-	.bLogo {
-		object-fit: cover;
-		max-height: 100%;
-	}
 	.sTag {
 		margin-top: -1.4em;
 		font-size: 80%;
@@ -150,5 +146,13 @@
 	}
 	.ctr {
 		text-align: center;
+	}
+	.clamped {
+		max-width: 100%;
+		max-height: 100%;
+		margin: 0 auto;
+	}
+	.cover {
+		object-fit: contain;
 	}
 </style>
