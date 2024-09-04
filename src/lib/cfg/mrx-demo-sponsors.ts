@@ -17,12 +17,12 @@ const sponsorSource: MrxSponsor[] = [
   },
   {
     id: "infuse-video",
-    name: "Infuse Video",
-    who: "SMTPE is the home of prefessional media",
-    logo: "logo/smpte-logo.svg",
-    homeUrl: "https://smpte.org/",
-    contactUrl: "https://smpte.org/",
-    qrdata: "https://smpte.org/",
+    name: "lont.ai",
+    who: "lont.ai (formerly infuse-video) won the IBC 2023 Accelerator Project prize with MetaRex",
+    logo: "logo/infuse-video-logo.svg",
+    homeUrl: "https://lont.ai/",
+    contactUrl: "https://lont.ai/",
+    qrdata: "https://lont.ai/",
     xtra: [{}]
   },
   {
@@ -128,7 +128,7 @@ const sponsorSource: MrxSponsor[] = [
   {
     id: "v-nova",
     name: "V-Nova",
-    who: "V-Nova creates high quality professioinal video codecs",
+    who: "V-Nova creates high quality professional video codecs",
     logo: "logo/v-nova-logo.png",
     homeUrl: "https://v-nova.com/",
     contactUrl: "https://v-nova.com/",

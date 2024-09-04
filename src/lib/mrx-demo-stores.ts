@@ -4,7 +4,7 @@
  * cores for the nab 2024 app
  */
 import { get, readable, writable, derived, type Writable, type Readable } from 'svelte/store';
-import type { MrxSelectedMediaSource, MrxReqRes, MrxEvent, MrxExploreTab } from '$lib/mrx-demo-defs'
+import { type MrxSelectedMediaSource, type MrxReqRes, type MrxEvent, type MrxExploreTab, MrxMode } from '$lib/mrx-demo-defs'
 import { nilSource } from '$lib/mrx-demo-defs'
 import cfgSource from '$lib/cfg/mrx-demo-config'
 import sponsorSource from '$lib/cfg/mrx-demo-sponsors'
@@ -16,6 +16,13 @@ export const pageAR: Readable<number> = derived(pageW, $w => $w/get(pageH) )
 //display in mobile mode when the width is less than 800 pixels
 //used to switch between desktop and mobile layouts (fomantic breaks at 768px)
 export const MOBILE: Readable<boolean> = derived(pageW, $w => ($w<800) )
+
+// mode for displaying the content
+export const MODE = writable(MrxMode.DemoFlow)
+// panel displayed in the pane for a mode for displaying the content
+export const PANEL = writable(0)
+// sponsor index to coordinate across components
+export const SPIDX = writable(0)
 
 // the most recent source that was clicked in the navigation panel
 export const source: Writable<MrxSelectedMediaSource> = writable(nilSource);

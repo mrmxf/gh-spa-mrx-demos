@@ -11,7 +11,8 @@
 	import SponsorPane from "$lib/Sponsor-pane.svelte";
 
 	export let demoId: number;
-	let bnColor = "black";
+	//set banner vertical height
+	let bvh = $cfgData.appearance.topHeight;
 
 	// prevent an out of bounds display of description for non-demo pages
 	$: description =
@@ -21,7 +22,7 @@
 </script>
 
 <!-- --- mobile variant has fewer segments--------------------------------- -->
-<div class="ui horizontal segments" style="max-height:20vh;">
+<div class="ui horizontal segments" style="max-height:{bvh};">
 	{#if $MOBILE}
 		<BannerNav {demoId} />
 		<div class="ui segment">

@@ -5,13 +5,15 @@
 	 * display the sponsors of this demo
 	 */
 	import type { MrxSponsor } from "$lib/mrx-demo-defs";
-	import { cfgData, sponsors, MOBILE, pageW } from "$lib/mrx-demo-stores";
+	import { cfgData, sponsors, MOBILE, SPIDX } from "$lib/mrx-demo-stores";
 	import { onMount } from "svelte";
 	import QR from "./Sponsor-pane-qr.svelte";
 
 	export let demoId: number;
 	export let justLogo: boolean = false;
 
+	//set banner vertical height
+	let bvh = $cfgData.appearance.topHeight;
 	let demoCfg = $cfgData.demo[demoId - 1];
 
 	let demoSponsors: MrxSponsor[] = [];
@@ -22,20 +24,27 @@
 	});
 
 	let dwellMilliseconds = $cfgData.appearance.sponsorDwellSecs * 1000;
-	let index = 0;
-	let sponsor: MrxSponsor = demoSponsors[index];
+	$SPIDX = 0;
+	let sponsor: MrxSponsor;
+
+	let interval: number;
+	let setTimer = () => {
+		$SPIDX += 1;
+		$SPIDX = $SPIDX >= demoSponsors.length ? 0 : $SPIDX;
+	};
 
 	onMount(() => {
-		const interval = setInterval(() => {
-			index += 1;
-			index = index == demoSponsors.length ? 0 : index;
-			sponsor = demoSponsors[index];
-		}, dwellMilliseconds);
-
+		interval = setInterval(setTimer, dwellMilliseconds);
 		return () => {
 			clearInterval(interval);
 		};
 	});
+	// reset the sponsor if it is changed by another component
+	$: {
+		sponsor = demoSponsors[$SPIDX];
+		clearInterval(interval);
+		interval = setInterval(setTimer, dwellMilliseconds);
+	}
 	$: sponsorWho = sponsor.who ? sponsor.who : " ";
 	$: sponsorTag = sponsor.tagline ? sponsor.tagline : " ";
 </script>
@@ -74,10 +83,13 @@
 		</p>
 	{/if}
 {:else}
-	<div class=" ui horizontal segments clamped">
-		<div class=" fluid segment clamped">
-			<div class=" ui horizontal segments clamped" style="margin: 0 auto;">
-				<div class=" ui center middle aligned segment clamped">
+	<div class="ui horizontal basic segments clamped" style="width:35vw;height:{bvh};">
+		<div class="segment clamped" style="height:{bvh};">
+			<div class="ui horizontal segments clamped" style="margin:0 auto;height:{bvh};">
+				<div
+					class="ui center middle aligned segment clamped"
+					style="width:12vw;"
+				>
 					<a
 						class="clamped"
 						href={sponsor.contactUrl}
@@ -91,44 +103,40 @@
 						/>
 					</a>
 				</div>
-				<div class=" ui segment clamped">
+				<div
+					class="ui segment clamped"
+					style="overflow: scroll-vertical;width:23vw;"
+				>
 					<h4 class="header">{sponsor.name}</h4>
 					<p class="sTag">
 						<span class="ui blue text">{sponsorTag}</span>
 					</p>
 					<p class="sWho">
 						<span class="ui grey text">{sponsorWho}</span>
-					</p>
-					<div class="ui horizontal basic equal width segments" style="margin: 0 auto;">
 						{#if sponsor.homeUrl}
-							<div class="ctr segment">
-								<a href={sponsor.homeUrl} target="_blank">
-									<div class="ui centered label">
-										<i class="home icon"></i>
-										<i class="external alternate blue icon"></i>
-									</div>
-								</a>
-							</div>
+							<a href={sponsor.homeUrl} target="_blank">
+								<div class="ui small centered label">
+									<i class="home icon"></i>
+								</div>
+							</a>
 						{/if}
 						{#if sponsor.contactUrl}
-							<div class="ctr segment" style="max-height:100%">
-								<a href={sponsor.contactUrl} target="_blank">
-									<div class="ui small centered label">
-										<i class="envelope outline icon"></i>
-										<i class="external alternate blue icon"></i>
-									</div>
-								</a>
-							</div>
+							<a href={sponsor.contactUrl} target="_blank">
+								<div class="ui small centered label">
+									<i class="envelope outline icon"></i>
+								</div>
+							</a>
 						{/if}
-					</div>
-
+					</p>
 				</div>
 			</div>
 
-			<div class="segment">
-			</div>
+			<div class="segment"></div>
 		</div>
-		<div class="ui segment" style="width:30%;max-height:100%;">
+		<div
+			class="ui segment"
+			style="width:10vh;min-width:10vh;max-height:100%;"
+		>
 			<QR data={sponsor.qrdata} logo={sponsor.logo} />
 		</div>
 	</div>
@@ -151,8 +159,6 @@
 		max-width: 100%;
 		max-height: 100%;
 		margin: 0 auto;
-	}
-	.cover {
-		object-fit: contain;
+		overflow: hidden;
 	}
 </style>

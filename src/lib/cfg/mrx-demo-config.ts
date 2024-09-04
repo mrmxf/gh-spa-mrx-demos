@@ -36,11 +36,11 @@ const cfg: MrxCfgData = {
     }
   },
   appearance: {
-    topHeight: "20vh",
+    topHeight: "15vh",
     midHeight: "20vh",
     botHeight: "60vh",
     sponsorHeight: "200px;",
-    sponsorDwellSecs: 6,
+    sponsorDwellSecs: 2,
     overviewDwellSecs: 10,
     navigate: {
       width: "two",

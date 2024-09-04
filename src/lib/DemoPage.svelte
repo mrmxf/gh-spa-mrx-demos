@@ -4,11 +4,12 @@
 	 * ------------------------------------------------------------------------
 	 * demo page template for most pages
 	 */
-	import type { MrxMediaSource, MrxEvent } from "$lib/mrx-demo-defs";
-	import { pageW, pageH, pageAR, DBG, MOBILE } from "$lib/mrx-demo-stores";
+	import { type MrxMediaSource, type MrxEvent, MrxMode } from "$lib/mrx-demo-defs";
+	import { pageW, pageH, MODE, DBG, MOBILE } from "$lib/mrx-demo-stores";
 	import DEBUG from "$lib/Debug.svelte";
 
 	import Banner from "$lib/Banner.svelte";
+	import DisplayPaneNav from "$lib/DisplayPaneNav.svelte"
 	import FlowPane from "$lib/Flow-Pane.svelte";
 	import Navigate from "$lib/Navigate.svelte";
 	import Explore from "$lib/ExplorePane.svelte";
@@ -35,9 +36,12 @@
 <svelte:window bind:innerWidth bind:innerHeight />
 
 <DEBUG />
-<div class="ui stackable segments">
+<div class="ui stackable segments fillPage">
 	<Banner {demoId} />
+	<DisplayPaneNav {demoId}/>
+	{#if $MODE==MrxMode.DemoFlow}
 	<FlowPane {demoId} />
+	{:else}
 	<div class=" ui stretched row">
 		<div class="sixteen wide column">
 			<div class="ui demoSeg orange segment">
@@ -62,11 +66,15 @@
 			</div>
 		</div>
 	</div>
+	{/if}
 </div>
 
 <style>
 	.demoSeg {
 		min-height: 50vh;
 		max-height: 60vh;
+	}
+	.fillPage {
+		height: 100%;
 	}
 </style>

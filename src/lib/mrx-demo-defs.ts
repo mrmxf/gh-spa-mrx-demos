@@ -7,6 +7,10 @@
 /* ------------------------------------------------------------------------- */
 /* --- Types that relate to the demo as an entity -------------------------- */
 
+export enum MrxMode {
+  DemoFlow,
+  DemoTryIt
+}
 
 /** type information for the imported JSON */
 export type MrxCfgData = {
@@ -18,6 +22,7 @@ export type MrxCfgData = {
 
 /** the configuration information for a flow explainer  */
 export interface MrxDemoFlow {
+  mnu: string
   md?: string,
   img?: string
 }
