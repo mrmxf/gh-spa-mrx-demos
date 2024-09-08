@@ -4,9 +4,9 @@
 	 * ------------------------------------------------------------------------
 	 * Control - the common file - usually overridden
 	 */
-	import type { MrxCfgData, MrxMediaSource } from '$lib/mrx-demo-defs';
-	import { cfgData } from '$lib/mrx-demo-stores';
-	import { source } from '$lib/mrx-demo-stores';
+	import type { MrxCfgData, MrxMediaSource } from '$lib/inc/defs';
+	import { cfgData } from '$lib/inc/store-misc';
+	import { source } from '$lib/inc/store-misc';
 
 	export let demoId: number;
 	export let sources: MrxMediaSource[]

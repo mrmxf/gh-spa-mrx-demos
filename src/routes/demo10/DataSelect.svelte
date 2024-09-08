@@ -5,7 +5,7 @@
 	 * data selector for sub-sources
 	 * bind the dropdown selection value to the store `$selectedServiceIndex`
 	 */
-	import { source } from '$lib/mrx-demo-stores';
+	import { source } from '$lib/inc/store-misc';
 	import { selectedServiceIndex } from './control10-stores';
 </script>
 

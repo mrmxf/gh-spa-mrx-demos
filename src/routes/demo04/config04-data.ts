@@ -1,4 +1,4 @@
-import { MrxExploreEnum, type MrxMediaSource, type MrxRegisterCache } from '$lib/mrx-demo-defs';
+import { MrxExploreEnum, type MrxMediaSource, type MrxRegisterCache } from '$lib/inc/defs';
 
 import rnc from '$lib/reg/MRX.123.456.789.rnc/register.json';
 import rnf from '$lib/reg/MRX.123.456.789.rnf/register.json';

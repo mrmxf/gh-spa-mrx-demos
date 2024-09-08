@@ -6,7 +6,7 @@
 	 * $activeSource is the current event in the rundown
 	 * $source is clip of any event that was clicked by the user
 	 */
-	import { nilSource, type MrxEvent, type MrxMediaSource , type MrxServiceData} from '$lib/mrx-demo-defs';
+	import { nilSource, type MrxEvent, type MrxMediaSource , type MrxServiceData} from '$lib/inc/defs';
 	import {
 		cfgData,
 		source,
@@ -15,11 +15,11 @@
 		rundownEvents,
 		reqRes,
 		exploreTabs
-	} from '$lib/mrx-demo-stores';
+	} from '$lib/inc/store-misc';
 	import { base } from '$app/paths';
 	import { mrxRegisterExplore, mrxServiceDemo, mrxServiceExplore } from '$lib/mrxEtl';
 	import DataSelect from './DataSelect.svelte';
-	import { md } from '$lib/markdown-it';
+	import { md } from '$lib/inc/markdown-it';
 	import { selectedServiceIndex, etlMdStr } from './control10-stores';
 
 	export let demoId: number;

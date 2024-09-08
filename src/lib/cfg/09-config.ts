@@ -2,7 +2,7 @@
   *  BSD 3 Clause License   https://opensource.org/license/bsd-3-clause/
   * ------------------------------------------------------------------------
   */
-import type { MrxDemoCfg } from '$lib/mrx-demo-defs';
+import type { MrxDemoCfg } from '$lib/inc/defs';
 
 export const cfg: MrxDemoCfg = {
   demoId: 9,
@@ -13,14 +13,14 @@ export const cfg: MrxDemoCfg = {
   altText: "09-no-proxy",
   body: "Smart transform of metadata and content for editing and visualization\nwith MetRex.\n",
   demoSummary: `
-### One file in the cloud to rule them all
+## One file in the cloud to rule them all
 
 * Store compressed, lossless content at rest at full resolution e.g. 8k
 * Pull whatever resolution you need UHD, HD, SD, thumbnail
 * Cloud Cache & CDN cache friendly
 * **Metarex** can handle bitrate selection & m3U conversion.`,
   exploreMd: `
-### Multi Resolution Workflows
+## Multi Resolution Workflows
 
 Multiple video resolutions slowing down your remote workflows?
 
@@ -34,7 +34,7 @@ Click a clip to see.`,
   flowPanels: [{
     mnu: "Img Sources",
     md: `
-### AI feeds on images
+## AI feeds on images
 
 * You Store your compressed, lossless content at rest at full resolution e.g. 8k
 * AI only needs less than \`800\` x \`600\`px to detect objects
@@ -44,7 +44,7 @@ Click a clip to see.`,
   {
     mnu: "Proxies",
     md: `
-### AI feeds on proxies
+## AI feeds on proxies
 
 * Traditionally we build a proxy engine
 * We need to manage the engine
@@ -56,7 +56,7 @@ Click a clip to see.`,
   },
   {
     mnu: "VC-6", md: `
-### AI snacks on VC-6
+## AI snacks on VC-6
 
 * VC-6 is not like other codecs - it's truly hierarchical
 * Store the source
@@ -68,7 +68,7 @@ Click a clip to see.`,
   {
     mnu: "MetaRex",
     md: `
-### AI snacks enhanced by MetaRex
+## AI snacks enhanced by MetaRex
 
 * MetaRex describes & publishes the fetch API
 * No code / low code workflow engines can get the resolution they need
@@ -79,7 +79,7 @@ Click a clip to see.`,
   {
     mnu: "AI Detect",
     md: `
-### AI Detect workflows
+## AI Detect workflows
 
 * VC-6 reduces your operational & ongoing costs of AI detection
 * MetaRex reduces your onboarding & customer acquisition costs`,
@@ -88,7 +88,7 @@ Click a clip to see.`,
   {
     mnu: "AI Match",
     md: `
-### AI Recognition workflows
+## AI Recognition workflows
 
 * VC-6 has a unique region-of-interest decode mechanism
 * Reduce operational costs for high-definition recognition tasks

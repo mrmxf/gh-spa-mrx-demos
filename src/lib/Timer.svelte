@@ -5,7 +5,7 @@
 	 * Timer for rundown events
 	 */
 	import { onDestroy } from 'svelte';
-	import { timeOfDay } from '$lib/mrx-demo-stores';
+	import { timeOfDay } from '$lib/inc/store-misc';
 
 	function updateTimer() {
 		timeOfDay.set(new Date());

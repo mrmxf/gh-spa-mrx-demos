@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------
  * demo08 config data
  */
-import { MrxExploreEnum, type MrxMediaSource, type MrxRegisterCache } from '$lib/mrx-demo-defs';
+import { MrxExploreEnum, type MrxMediaSource, type MrxRegisterCache } from '$lib/inc/defs';
 
 import jpg from '$lib/regcache/MRX.123.456.789.jpg.json';
 

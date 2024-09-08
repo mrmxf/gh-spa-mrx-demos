@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------
  * demo10 config data
  */
-import { MrxExploreEnum, type MrxMediaSource, type MrxRegisterCache, type MrxServiceData } from '$lib/mrx-demo-defs';
+import { MrxExploreEnum, type MrxMediaSource, type MrxRegisterCache, type MrxServiceData } from '$lib/inc/defs';
 
 import njs from '$lib/reg/MRX.123.456.789.njs/register.json';
 import nml from '$lib/reg/MRX.123.456.789.nml/register.json';

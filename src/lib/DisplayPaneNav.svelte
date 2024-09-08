@@ -4,18 +4,16 @@
    * ------------------------------------------------------------------------
    */
 
-  import { MODE, PANEL, cfgData } from "$lib/mrx-demo-stores";
+  import { MODE, PANEL, cfgData } from "$lib/inc/store-misc";
   import { base } from "$app/paths";
-  import { MrxMode, type MrxDemoFlow } from "$lib/mrx-demo-defs";
+  import { MrxMode, type MrxDemoFlow } from "$lib/inc/defs";
 
   export let demoId: number;
   let labels: string[] = [];
 
   let demoCfg = $cfgData.demo[demoId - 1];
 
-  $: if ($MODE == MrxMode.DemoFlow) {
-    //make an array of panels for this demo
-    let panels: MrxDemoFlow[] = [];
+  $: if ($MODE == MrxMode.FlowView) {
     demoCfg.flowPanels.forEach((p) => {
       labels.push(p.mnu);
     });
@@ -28,23 +26,23 @@
 <div class="ui pointing menu">
   <a class="active item" href="#">
     <div class="ui buttons">
-      <button class="ui button" on:click={() => ($MODE = MrxMode.DemoFlow)}
+      <button class="ui button" on:click={() => ($MODE = MrxMode.FlowView)}
         >Demo Flow</button
       >
       <div class="or"></div>
       <button
         class="ui positive button"
-        on:click={() => ($MODE = MrxMode.DemoTryIt)}>Try it</button
+        on:click={() => ($MODE = MrxMode.TryItView)}>Try it</button
       >
     </div>
   </a>
-  {#if $MODE == MrxMode.DemoFlow}
+  {#if $MODE == MrxMode.FlowView}
     {#each labels as lbl, i}
-      <a class="item" href="#" on:click={() => ($PANEL = i)}> {lbl} </a>
+      <a class="item" href={"#"} on:click={() => ($PANEL = i)}> {lbl} </a>
     {/each}
   {:else}
     {#each labels as lbl, i}
-      <a class="item" href="#" on:click={() => ($PANEL = i)}> {lbl} </a>
+      <a class="item" href={"#"} on:click={() => ($PANEL = i)}> {lbl} </a>
     {/each}
   {/if}
 </div>

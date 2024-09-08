@@ -4,9 +4,9 @@
 	 * ------------------------------------------------------------------------
 	 * Visualize08
 	 */
-	import { cfgData, source, reqRes } from '$lib/mrx-demo-stores';
-	import { md } from '$lib/markdown-it';
-	import { MrxExploreEnum } from '$lib/mrx-demo-defs';
+	import { cfgData, source, reqRes } from '$lib/inc/store-misc';
+	import { md } from '$lib/inc/markdown-it';
+	import { MrxExploreEnum } from '$lib/inc/defs';
 
 	export let demoId: number;
 

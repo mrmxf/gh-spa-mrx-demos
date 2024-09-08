@@ -5,15 +5,15 @@
 	 * Control08
 	 */
 
-	import { cfgData, source, reqRes, exploreTabs } from '$lib/mrx-demo-stores';
+	import { cfgData, source, reqRes, exploreTabs } from '$lib/inc/store-misc';
 	import {
 		MrxExploreEnumNames,
 		type MrxMediaSource,
 		type MrxServiceData
-	} from '$lib/mrx-demo-defs';
+	} from '$lib/inc/defs';
 	import { mrxServiceDemo, mrxServiceExplore } from '$lib/mrxEtl';
 
-	import { md } from '$lib/markdown-it';
+	import { md } from '$lib/inc/markdown-it';
 	import { manifest } from './config08-data';
 
 	export let demoId: number;

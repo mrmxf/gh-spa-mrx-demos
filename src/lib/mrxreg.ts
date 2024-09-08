@@ -1,5 +1,5 @@
 // MetRex register helpers
-import type { MrxRegisterEntry } from './mrx-demo-defs';
+import type { MrxRegisterEntry } from './inc/defs';
 import { base } from '$app/paths';
 
 const suffix = "register.json"

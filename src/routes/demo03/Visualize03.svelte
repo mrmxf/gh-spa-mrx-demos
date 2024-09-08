@@ -5,9 +5,9 @@
 	 * Visualize03
 	 */
 
-	import { DBG, cfgData, source, reqRes, exploreTabs } from '$lib/mrx-demo-stores';
-	import { md } from '$lib/markdown-it';
-	import { MrxExploreEnum, MrxExploreEnumNames } from '$lib/mrx-demo-defs';
+	import { DBG, cfgData, source, reqRes, exploreTabs } from '$lib/inc/store-misc';
+	import { md } from '$lib/inc/markdown-it';
+	import { MrxExploreEnum, MrxExploreEnumNames } from '$lib/inc/defs';
 
 	export let demoId: number;
 

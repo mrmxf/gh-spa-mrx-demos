@@ -4,7 +4,7 @@
 	 * ------------------------------------------------------------------------
 	 * demo selection page
 	 */
-	import { cfgData, cfgEnv } from "$lib/mrx-demo-stores";
+	import { cfgData, cfgEnv } from "$lib/inc/store-misc.js";
 	import { base } from "$app/paths";
 	// import type {*} from'@types/markdown-it';
 	export let data;
@@ -12,7 +12,7 @@
 	import BannerNav from "$lib/BannerNav.svelte";
 	import HomePageCard from "$lib/HomePageCard.svelte";
 	import HomePageTitle from "$lib/HomePageTitle.svelte";
-	import { md } from "$lib/markdown-it";
+	import { md } from "$lib/inc/markdown-it.js";
 </script>
 
 <DEBUG />

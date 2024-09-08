@@ -1,4 +1,4 @@
-import type { DemoSource, MrxETLService, MrxRegisterCache } from '$lib/mrx-demo-defs';
+import type { DemoSource, MrxETLService, MrxRegisterCache } from '$lib/inc/defs';
 
 import njs from '$lib/reg/MRX.123.456.789.njs/register.json';
 

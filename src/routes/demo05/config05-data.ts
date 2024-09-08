@@ -1,4 +1,4 @@
-import { MrxExploreEnum, type MrxMediaSource, type MrxRegisterCache } from '$lib/mrx-demo-defs';
+import { MrxExploreEnum, type MrxMediaSource, type MrxRegisterCache } from '$lib/inc/defs';
 
 import vqc from '$lib/regcache/MRX.123.456.789.vqc.json';
 

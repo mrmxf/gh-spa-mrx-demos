@@ -4,9 +4,9 @@
 	 * ------------------------------------------------------------------------
 	 * Control12
 	 */
-	import { cfgData, source, reqRes, exploreTabs } from '$lib/mrx-demo-stores';
+	import { cfgData, source, reqRes, exploreTabs } from '$lib/inc/store-misc';
 	import { mrxServiceDemo, mrxServiceExplore } from '$lib/mrxEtl';
-	import { md } from '$lib/markdown-it';
+	import { md } from '$lib/inc/markdown-it';
 
 	export let demoId: number;
 

@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------
  * demo07 config data
  */
-import type { MrxMediaSource, MrxRegisterCache } from '$lib/mrx-demo-defs';
+import type { MrxMediaSource, MrxRegisterCache } from '$lib/inc/defs';
 
 import rnc from '$lib/reg/MRX.123.456.789.rnc/register.json';
 import rnj from '$lib/reg/MRX.123.456.789.rnj/register.json';

@@ -4,13 +4,13 @@
 	 * ------------------------------------------------------------------------
 	 * Explore-body - display the body of the selected tab
 	 */
-	import { DBG, exploreTabs, activeExploreTabNumber } from '$lib/mrx-demo-stores';
+	import { DBG, exploreTabs, activeExploreTabNumber } from '$lib/inc/store-misc';
 	import { base } from '$app/paths';
 	import PrismPane from '$lib/PrismPane.svelte';
-	import { md } from '$lib/markdown-it';
-	import type { MrxExploreTab } from '$lib/mrx-demo-defs';
-	import { MrxExploreEnumNames } from '$lib/mrx-demo-defs';
-	import { MrxExploreEnum, MrxExploreViewers, MrxExploreView } from './mrx-demo-defs';
+	import { md } from '$lib/inc/markdown-it';
+	import type { MrxExploreTab } from '$lib/inc/defs';
+	import { MrxExploreEnumNames } from '$lib/inc/defs';
+	import { MrxExploreEnum, MrxExploreViewers, MrxExploreView } from '$lib/inc/defs';
 
 	let tabsExist = false;
 	let type: MrxExploreEnum;

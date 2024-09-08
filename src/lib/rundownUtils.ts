@@ -4,8 +4,8 @@
  * Functions to help with managing rundowns
  */
 
-import { nilEvent, type MrxEvent } from '$lib/mrx-demo-defs';
-import { timeOfDay } from '$lib/mrx-demo-stores';
+import { nilEvent, type MrxEvent } from '$lib/inc/defs';
+import { timeOfDay } from '$lib/inc/store-misc';
 
 let timeNow: Date;
 timeOfDay.subscribe((v) => timeNow = v)

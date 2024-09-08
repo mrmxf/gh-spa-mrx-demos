@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------
  * demo01 control data for this demo
  */
-import type { MrxMediaSource, MrxRegisterCache, } from '$lib/mrx-demo-defs';
+import type { MrxMediaSource, MrxRegisterCache, } from '$lib/inc/defs';
 
 import def from '$lib/regcache/MRX.123.456.789.def.json';
 import ghi from '$lib/regcache/MRX.123.456.789.ghi.json';

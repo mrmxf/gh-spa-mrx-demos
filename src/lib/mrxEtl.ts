@@ -4,10 +4,10 @@
  * make a call to the MrxAppServer
  */
 
-import { DBG, reqRes, exploreTabs, cfgEnv } from '$lib/mrx-demo-stores';
+import { DBG, reqRes, exploreTabs, cfgEnv } from '$lib/inc/store-misc';
 import { get } from 'svelte/store';
-import type { MrxServiceData, MrxMediaSource, MrxReqRes, MrxPayload, MrxReqResExplore, MrxRegisterEntry } from '$lib/mrx-demo-defs';
-import { MrxExploreEnum, MrxExploreEnumNames } from '$lib/mrx-demo-defs';
+import type { MrxServiceData, MrxMediaSource, MrxReqRes, MrxPayload, MrxReqResExplore, MrxRegisterEntry } from '$lib/inc/defs';
+import { MrxExploreEnum, MrxExploreEnumNames } from '$lib/inc/defs';
 import { base } from '$app/paths';
 
 var localDBG = get(DBG)

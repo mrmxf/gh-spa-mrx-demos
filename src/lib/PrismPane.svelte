@@ -6,7 +6,7 @@
 	 */
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
-	import { MrxExploreCodeAlias, MrxExploreEnum, MrxExploreEnumNames } from '$lib/mrx-demo-defs';
+	import { MrxExploreCodeAlias, MrxExploreEnum, MrxExploreEnumNames } from '$lib/inc/defs';
 	import Prism from 'prismjs';
 	import { AutoLoader } from 'svelte-prism-autoloader';
 

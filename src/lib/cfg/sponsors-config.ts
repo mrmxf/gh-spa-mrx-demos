@@ -2,7 +2,7 @@
   *  BSD 3 Clause License   https://opensource.org/license/bsd-3-clause/
   * ------------------------------------------------------------------------
   */
-import type { MrxSponsor } from '$lib/mrx-demo-defs';
+import type { MrxSponsor } from '$lib/inc/defs';
 const sponsorSource: MrxSponsor[] = [
   {
     id: "amber",

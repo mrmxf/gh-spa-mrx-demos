@@ -4,11 +4,11 @@
 	 * ------------------------------------------------------------------------
 	 * Control06
 	 */
-	import { cfgData, source, reqRes, exploreTabs } from '$lib/mrx-demo-stores';
-	import { MrxExploreEnumNames } from '$lib/mrx-demo-defs';
+	import { cfgData, source, reqRes, exploreTabs } from '$lib/inc/store-misc';
+	import { MrxExploreEnumNames } from '$lib/inc/defs';
 	import { mrxServiceDemo, mrxServiceExplore } from '$lib/mrxEtl';
 
-	import type { MrxDemoCfg } from '$lib/mrx-demo-defs';
+	import type { MrxDemoCfg } from '$lib/inc/defs';
 	import { base } from '$app/paths';
 	import { mrxRegisterExplore } from '$lib/mrxEtl';
 

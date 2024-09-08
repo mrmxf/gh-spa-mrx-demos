@@ -4,7 +4,7 @@
      * ------------------------------------------------------------------------
      * demo page template for most pages
      */
-    import { pageW, pageH, pageAR, DBG, MOBILE } from "$lib/mrx-demo-stores";
+    import { pageW, pageH, pageAR, DBG, MOBILE } from "$lib/inc/store-misc";
 </script>
 
 {#if $DBG}

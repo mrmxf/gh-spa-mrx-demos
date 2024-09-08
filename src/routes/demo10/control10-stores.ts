@@ -5,8 +5,8 @@
  */
 
 import { get, derived, writable } from 'svelte/store';
-import { source } from '$lib/mrx-demo-stores';
-import { MrxExploreEnum, MrxExploreEnumNames } from '$lib/mrx-demo-defs'
+import { source } from '$lib/inc/store-misc';
+import { MrxExploreEnum, MrxExploreEnumNames } from '$lib/inc/defs'
 
 // remember the selected newsml
 export const ninjsId = writable(-1)

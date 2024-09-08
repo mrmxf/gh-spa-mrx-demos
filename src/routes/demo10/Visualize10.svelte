@@ -4,9 +4,9 @@
 	 * ------------------------------------------------------------------------
 	 */
 
-	import { cfgData, cfgEnv } from '$lib/mrx-demo-stores';
+	import { cfgData, cfgEnv } from '$lib/inc/store-misc';
 	import { base } from '$app/paths';
-	import { source } from '$lib/mrx-demo-stores';
+	import { source } from '$lib/inc/store-misc';
 
 	export let demoId: number;
 

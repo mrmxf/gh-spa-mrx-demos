@@ -2,7 +2,7 @@
   *  BSD 3 Clause License   https://opensource.org/license/bsd-3-clause/
   * ------------------------------------------------------------------------
   */
-import type { MrxCfgData } from '$lib/mrx-demo-defs';
+import type { MrxCfgData } from '$lib/inc/defs';
 import { cfg as cfg01 } from '$lib/cfg/01-config'
 import { cfg as cfg02 } from '$lib/cfg/02-config'
 import { cfg as cfg03 } from '$lib/cfg/03-config'
@@ -40,8 +40,8 @@ const cfg: MrxCfgData = {
     midHeight: "20vh",
     botHeight: "60vh",
     sponsorHeight: "200px;",
-    sponsorDwellSecs: 2,
-    overviewDwellSecs: 10,
+    sponsorDwellSecs: 3,
+    flowDwellSecs: 15,
     navigate: {
       width: "two",
       color: "white"
@@ -61,7 +61,7 @@ const cfg: MrxCfgData = {
   },
   home: {
     titleMd: `
-#### IBC 20024 - come and see us on Sunday at 17:00 14.AI03
+### IBC 20024 - come and see us on Sunday at 17:00 14.AI03
 
 Win a cuddly Rexy - [sign up here to do the Treasure Hunt](https://bit.ly/rexy-ibc-2024)
     `

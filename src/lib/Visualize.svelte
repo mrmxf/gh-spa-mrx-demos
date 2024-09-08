@@ -4,7 +4,7 @@
 	 * ------------------------------------------------------------------------
 	 */
 	import { base } from '$app/paths';
-	import { cfgData, source } from '$lib/mrx-demo-stores';
+	import { cfgData, source } from '$lib/inc/store-misc';
 
 	export let demoId: number;
 

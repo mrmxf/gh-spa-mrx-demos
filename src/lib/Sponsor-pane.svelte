@@ -4,8 +4,8 @@
 	 * ------------------------------------------------------------------------
 	 * display the sponsors of this demo
 	 */
-	import type { MrxSponsor } from "$lib/mrx-demo-defs";
-	import { cfgData, sponsors, MOBILE, SPIDX } from "$lib/mrx-demo-stores";
+	import type { MrxSponsor } from "$lib/inc/defs";
+	import { cfgData, sponsors, MOBILE, SPIDX } from "$lib/inc/store-misc";
 	import { onMount } from "svelte";
 	import QR from "./Sponsor-pane-qr.svelte";
 

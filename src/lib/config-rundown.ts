@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------
  * config data for rundown source
  */
-import type { MrxEvent } from "$lib/mrx-demo-defs";
+import type { MrxEvent } from "$lib/inc/defs";
 
 export const LPXrundown: MrxEvent[] = [
   { timeStr: "00:00", durationSecs: 60, srcIndex: 0, headline: "Rexy's Seaside Stroll: A Dino's Day at the Beach!" },

@@ -4,9 +4,9 @@
    * ------------------------------------------------------------------------
    */
 
-  import { cfgData, MOBILE, SPIDX } from "$lib/mrx-demo-stores";
+  import { cfgData, MOBILE, SPIDX } from "$lib/inc/store-misc";
 
-  import { md } from "$lib/markdown-it";
+  import { md } from "$lib/inc/markdown-it";
   export let demoId: number;
 
   let demoCfg = $cfgData.demo[demoId - 1];

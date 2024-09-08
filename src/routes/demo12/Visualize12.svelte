@@ -4,9 +4,9 @@
 	 * ------------------------------------------------------------------------
 	 * Visualize12
 	 */
-	import type { MrxDemoCfg } from '$lib/mrx-demo-defs';
+	import type { MrxDemoCfg } from '$lib/inc/defs';
 	import { base } from '$app/paths';
-	import { cfgEnv, cfgData } from '$lib/mrx-demo-stores';
+	import { cfgEnv, cfgData } from '$lib/inc/store-misc';
 
 	export let demoId: number;
 

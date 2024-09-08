@@ -3,7 +3,7 @@
 	 * This is the navigation sidebar for the metarex demos
 	 */
 
-	 import { MOBILE } from "$lib/mrx-demo-stores";
+	 import { MOBILE } from "$lib/inc/store-misc";
 	import { afterNavigate } from "$app/navigation";
 	import { base } from "$app/paths";
 	import { onMount } from "svelte";

@@ -5,10 +5,10 @@
 	 * ------------------------------------------------------------------------
 	 * Explore tabs - selection header and body components
 	 */
-	import { DBG, exploreTabs, activeExploreTabNumber } from '$lib/mrx-demo-stores';
+	import { DBG, exploreTabs, activeExploreTabNumber } from '$lib/inc/store-misc';
 	// @ts-ignore ts(6137)
 	import type { JQueryStatic } from '@types/jquery';
-	import { MrxExploreIcon } from './mrx-demo-defs';
+	import { MrxExploreIcon } from '$lib/inc/defs';
 
 	let jquery: JQueryStatic | null = null;
 	let numTabs: number;

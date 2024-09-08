@@ -2,7 +2,7 @@
  *  BSD 3 Clause License   https://opensource.org/license/bsd-3-clause/
  * ------------------------------------------------------------------------
  */
-import sponsors from '$lib/cfg/mrx-demo-sponsors'
+import sponsors from '$lib/cfg/sponsors-config'
 
 const thisId = 0
 

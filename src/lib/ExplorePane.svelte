@@ -5,11 +5,11 @@
 	 * Common Explore Pane - a set of tabs (selected Header+body) components
 	 */
 
-	import { DBG, cfgData, source, exploreTabs, activeExploreTabNumber } from '$lib/mrx-demo-stores';
+	import { DBG, cfgData, source, exploreTabs, activeExploreTabNumber } from '$lib/inc/store-misc';
 
 	import TabSelect from '$lib/Explore-selector.svelte';
 	import TabBody from '$lib/Explore-body.svelte';
-	import { type MrxCfgData, type MrxExploreTab, MrxExploreEnum } from './mrx-demo-defs';
+	import { type MrxCfgData, type MrxExploreTab, MrxExploreEnum } from './inc/defs';
 
 	export let demoId: number;
 

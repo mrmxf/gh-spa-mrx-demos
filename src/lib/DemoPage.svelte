@@ -4,8 +4,8 @@
 	 * ------------------------------------------------------------------------
 	 * demo page template for most pages
 	 */
-	import { type MrxMediaSource, type MrxEvent, MrxMode } from "$lib/mrx-demo-defs";
-	import { pageW, pageH, MODE, DBG, MOBILE } from "$lib/mrx-demo-stores";
+	import { type MrxMediaSource, type MrxEvent, MrxMode } from "$lib/inc/defs";
+	import { pageW, pageH, MODE, DBG, MOBILE } from "$lib/inc/store-misc";
 	import DEBUG from "$lib/Debug.svelte";
 
 	import Banner from "$lib/Banner.svelte";
@@ -39,7 +39,7 @@
 <div class="ui stackable segments fillPage">
 	<Banner {demoId} />
 	<DisplayPaneNav {demoId}/>
-	{#if $MODE==MrxMode.DemoFlow}
+	{#if $MODE==MrxMode.FlowView}
 	<FlowPane {demoId} />
 	{:else}
 	<div class=" ui stretched row">

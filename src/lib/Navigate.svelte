@@ -9,8 +9,8 @@
 	 * - $previous == undefined || previous static click || rundown just
 	 * - $next == undefined || upcoming selection
 	 */
-	import type { MrxMediaSource, MrxEvent } from "$lib/mrx-demo-defs";
-	import { cfgData } from "$lib/mrx-demo-stores";
+	import type { MrxMediaSource, MrxEvent } from "$lib/inc/defs";
+	import { cfgData } from "$lib/inc/store-misc";
 	import NavStatic from "./NavStatic.svelte";
 	import NavRundown from "./NavRundown.svelte";
 

@@ -5,8 +5,8 @@
 	 * generic rundown navigation
 	 */
 
-	import type { MrxMediaSource, MrxEvent } from '$lib/mrx-demo-defs';
-	import { DBG, source, rundownEvents, timeOfDay } from '$lib/mrx-demo-stores';
+	import type { MrxMediaSource, MrxEvent } from '$lib/inc/defs';
+	import { DBG, source, rundownEvents, timeOfDay } from '$lib/inc/store-misc';
 	import { refreshEventList } from '$lib/rundownUtils';
 	import Timer from '$lib/Timer.svelte';
 

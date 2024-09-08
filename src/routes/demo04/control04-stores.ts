@@ -5,8 +5,8 @@
  */
 
 import { get, derived } from 'svelte/store';
-import { source, reqRes } from '$lib/mrx-demo-stores';
-import { MrxExploreEnum, MrxExploreEnumNames } from '$lib/mrx-demo-defs';
+import { source, reqRes } from '$lib/inc/store-misc';
+import { MrxExploreEnum, MrxExploreEnumNames } from '$lib/inc/defs';
 
 export const srcFormat = derived(source,
 	($source) => `${$source ? $source.name : "Select a source"}`

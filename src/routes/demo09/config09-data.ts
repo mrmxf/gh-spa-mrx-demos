@@ -1,4 +1,4 @@
-import type { MrxMediaSource, MrxRegisterCache } from '$lib/mrx-demo-defs';
+import type { MrxMediaSource, MrxRegisterCache } from '$lib/inc/defs';
 
 import def from '$lib/reg/MRX.123.456.789.def/register.json';
 
@@ -15,7 +15,8 @@ export type VC6Ladder = {
   height: number,
   fileSizeBytes: number,
   fileName: string
-}
+} | undefined
+
 export const loqLadderFire: VC6Ladder[] = [{
   "levelOfQuality": 0,
   "title": "8k UHD",
@@ -78,7 +79,11 @@ loqLadderBeach[2].fileSizeBytes = f * loqLadderFire[2].fileSizeBytes
 loqLadderBeach[3].fileSizeBytes = f * loqLadderFire[3].fileSizeBytes
 loqLadderBeach[4].fileSizeBytes = f * loqLadderFire[4].fileSizeBytes
 
-export const loqSources = {
+export type LoqSourcesMap = {
+  [key: string]: VC6Ladder[]
+}
+
+export const loqSources:LoqSourcesMap = {
   beach: loqLadderBeach,
   fire: loqLadderFire,
   roar: loqLadderRoar,

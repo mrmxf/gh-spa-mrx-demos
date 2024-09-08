@@ -5,8 +5,8 @@
 	 * generic static navigation
 	 */
 
-	import type { MrxMediaSource } from "$lib/mrx-demo-defs";
-	import { source } from "$lib/mrx-demo-stores";
+	import type { MrxMediaSource } from "$lib/inc/defs";
+	import { source } from "$lib/inc/store-misc";
 	import { base } from "$app/paths";
 
 	export let sources: MrxMediaSource[];

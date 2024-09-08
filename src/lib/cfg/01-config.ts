@@ -2,7 +2,7 @@
   *  BSD 3 Clause License   https://opensource.org/license/bsd-3-clause/
   * ------------------------------------------------------------------------
   */
-import type { MrxDemoCfg } from '$lib/mrx-demo-defs';
+import type { MrxDemoCfg } from '$lib/inc/defs';
 
 export const cfg: MrxDemoCfg = {
   demoId: 1,

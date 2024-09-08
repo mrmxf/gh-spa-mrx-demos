@@ -4,9 +4,9 @@
 	 * ------------------------------------------------------------------------
 	 * Visualize06
 	 */
-	import type { MrxDemoCfg, MrxMediaSource } from '$lib/mrx-demo-defs';
+	import type { MrxDemoCfg, MrxMediaSource } from '$lib/inc/defs';
 	import { base } from '$app/paths';
-	import { cfgData, source } from '$lib/mrx-demo-stores';
+	import { cfgData, source } from '$lib/inc/store-misc';
 
 	export let demoId: number;
 

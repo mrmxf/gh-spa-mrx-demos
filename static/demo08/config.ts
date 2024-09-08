@@ -1,4 +1,4 @@
-import type { DemoSource } from '$lib/mrx-demo-defs';
+import type { DemoSource } from '$lib/inc/defs';
 
 import mrx from  '$lib/reg/MRX.123.456.789.mrx/register.json';
 import mrx from  '$lib/reg/MRX.123.456.789.mrx/register.json';

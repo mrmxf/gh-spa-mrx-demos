@@ -8,8 +8,8 @@
 /* --- Types that relate to the demo as an entity -------------------------- */
 
 export enum MrxMode {
-  DemoFlow,
-  DemoTryIt
+  FlowView,
+  TryItView
 }
 
 /** type information for the imported JSON */
@@ -67,7 +67,7 @@ export type MrxCfgAppearance = {
   botHeight: string
   sponsorHeight: string
   sponsorDwellSecs: number
-  overviewDwellSecs: number
+  flowDwellSecs: number
   navigate: MrxCfgPanelProps
   control: MrxCfgPanelProps
   visualize: MrxCfgPanelProps

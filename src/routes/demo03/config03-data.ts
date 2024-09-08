@@ -3,8 +3,8 @@
  * ------------------------------------------------------------------------
  * demo03 config data
  */
-import type { MrxMediaSource, MrxRegisterCache } from '$lib/mrx-demo-defs';
-import { MrxExploreEnum } from '$lib/mrx-demo-defs';
+import type { MrxMediaSource, MrxRegisterCache } from '$lib/inc/defs';
+import { MrxExploreEnum } from '$lib/inc/defs';
 
 import gpx from '$lib/regcache/MRX.123.456.789.gpx.json';
 import wav from '$lib/regcache/MRX.123.456.789.wav.json';

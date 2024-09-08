@@ -6,8 +6,8 @@
 	 * $activeSource is the current event in the rundown
 	 * $source is clip of any event that was clicked by the user
 	 */
-	import { nilSource, type MrxEvent, type MrxMediaSource } from '$lib/mrx-demo-defs';
-	import { cfgData, source, rundownSource, timeOfDay, rundownEvents } from '$lib/mrx-demo-stores';
+	import { nilSource, type MrxEvent, type MrxMediaSource } from '$lib/inc/defs';
+	import { cfgData, source, rundownSource, timeOfDay, rundownEvents } from '$lib/inc/store-misc';
 	import { base } from '$app/paths';
 	import { mrxRegisterExplore } from '$lib/mrxEtl';
 

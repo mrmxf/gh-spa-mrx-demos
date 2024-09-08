@@ -4,7 +4,7 @@
 	 * ------------------------------------------------------------------------
 	 */
 
-	import { cfgData, MOBILE, DBG } from "$lib/mrx-demo-stores";
+	import { cfgData, MOBILE, DBG } from "$lib/inc/store-misc";
 
 	import BannerNav from "$lib/BannerNav.svelte";
 	import Description from "$lib/Description.svelte";

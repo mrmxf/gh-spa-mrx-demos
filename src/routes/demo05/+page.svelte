@@ -5,7 +5,7 @@
 	 * demo05 page layout
 	 */
 	import type { PageServerData } from './$types';
-	import type { MrxMediaSource } from '$lib/mrx-demo-defs';
+	import type { MrxMediaSource } from '$lib/inc/defs';
 
 	export let data: PageServerData;
 

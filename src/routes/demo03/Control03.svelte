@@ -10,16 +10,16 @@
 		MrxExploreEnumNames,
 		type MrxMediaSource,
 		type MrxServiceData
-	} from '$lib/mrx-demo-defs';
+	} from '$lib/inc/defs';
 	import {
 		cfgData,
 		source,
 		reqRes,
 		exploreTabs,
 		activeExploreTabNumber
-	} from '$lib/mrx-demo-stores';
+	} from '$lib/inc/store-misc';
 	import { selectedServiceIndex } from './control03-stores';
-	import { md } from '$lib/markdown-it';
+	import { md } from '$lib/inc/markdown-it';
 	import { mrxServiceDemo, mrxServiceExplore } from '$lib/mrxEtl';
 	import DataSelect from './DataSelect03.svelte';
 

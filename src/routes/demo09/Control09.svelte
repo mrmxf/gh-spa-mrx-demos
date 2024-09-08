@@ -4,8 +4,8 @@
 	 * ------------------------------------------------------------------------
 	 * Control09
 	 */
-	import { cfgData, source, reqRes, exploreTabs } from "$lib/mrx-demo-stores";
-	import { MrxExploreEnum, MrxExploreEnumNames } from "$lib/mrx-demo-defs";
+	import { cfgData, source, reqRes, exploreTabs } from "$lib/inc/store-misc";
+	import { MrxExploreEnum, MrxExploreEnumNames } from "$lib/inc/defs";
 	import { mrxServiceDemo, mrxServiceExplore } from "$lib/mrxEtl";
 	import { xIndex } from "./control09-stores";
 	import { onMount } from "svelte";
@@ -26,15 +26,14 @@
 	let min = 0;
 	let max = 4;
 
-	let loqLadder: VC6Ladder;
-	let totalBitrate: number = 0;
-	let loqPercent = [0, 0, 0, 0, 0, 0];
-	let loqBrLabel: string[];
+	let loqLadder: VC6Ladder[] | undefined;
+	let totalBitrate: number | undefined = 0;
+	let loqPercent: number[] | undefined;
+	let loqBrLabel: string[] | undefined;
 
 	onMount(() => {
 		// @ts-ignore ts(2339)
 		jquery = window.$;
-		jquery("#bar1").progress();
 		showLoq = 0;
 	});
 
@@ -47,14 +46,32 @@
 		}
 		return `${Math.floor(br / 100) / 10} kbs`;
 	}
-	$: loqLadder = $source ? loqSources[$source.id] : [];
+	$: loqLadder = $source ? loqSources[$source.id] : undefined;
 	$: xIndex.set(showLoq);
-	$: loqPercent = loqLadder.map((v, i) =>
-		Math.floor((100 * v.fileSizeBytes) / totalBitrate),
-	);
-	$: loqBrLabel = loqLadder.map((v, i) => brString(v.fileSizeBytes));
-	$: totalBitrate = loqLadder.reduce((sum, v) => sum + v.fileSizeBytes, 0);
-
+	$: loqPercent =
+		loqLadder && totalBitrate
+			? loqLadder.map((v, i) =>
+					v && totalBitrate
+						? Math.floor((100 * v.fileSizeBytes) / totalBitrate)
+						: 0,
+				)
+			: undefined;
+	$: loqBrLabel = loqLadder
+		? loqLadder.map((v, i) => brString(v.fileSizeBytes))
+		: undefined;
+	$: totalBitrate = loqLadder
+		? loqLadder.reduce((sum, v) => sum + v.fileSizeBytes, 0)
+		: undefined;
+	function activateBars(activeBar:number){
+		jquery("#bar0").progress('remove active');
+		jquery("#bar1").progress('remove active');
+		jquery("#bar2").progress('remove active');
+		jquery("#bar3").progress('remove active');
+		jquery("#bar4").progress('remove active');
+		jquery(`#bar${activeBar}`).progress('set active');
+	}
+	// adding showLoq >=0 forces the initialization of the progress bars
+	$: if (jquery && $source && (showLoq>=0)) {activateBars(showLoq)}
 	// let clone = JSON.parse(JSON.stringify(loqLadder, undefined, 2));
 	// clone.fileName = $source.clip + "_" + clone.fileName;
 	// let jsonStr = JSON.stringify(clone, undefined, 2);
@@ -66,14 +83,17 @@
 	// 	stringData: jsonStr,
 	// 	size: jsonStr.length,
 	// });
-	$: displayBitrate = brString(totalBitrate);
+	$: displayBitrate = totalBitrate ? brString(totalBitrate) : undefined;
 </script>
 
-<div class="{width} wide column">
-	<div class="ui {color} message" style="height:100%;">
-		Control {$source ? $source.id : "nothing selected"}
+<div class="{width} wide stretched column">
+	<div class="ui {color} message">
+		{@html $source
+			? `<strong>${$source.id}</strong> clip`
+			: "nothing selected"}
 		<div class="ui fluid image">
-			Which Level of Quality (loq) should be pulled from the cloud?<br />
+			Which Level of Quality (<strong>LoQ</strong>) should be pulled from
+			the cloud?<br />
 			<div class="ui center aligned {color} segment">
 				LoQ = <input
 					style="width:6em;"
@@ -92,14 +112,19 @@
 				/>
 				8k bitrate = {displayBitrate}
 			</div>
-			{#if $source && $source.srcUrl && $source.srcUrl.length > 0}
+			{#if $source && $source.srcUrl && $source.srcUrl.length > 0 && loqLadder}
 				{#each loqLadder as loq, i}
-					<div class="ui progress" data-percent={loqPercent[i]}>
+					<div
+						id="bar{i}"
+						class="ui progress"
+						data-percent={loqPercent ? loqPercent[i] : 0}
+					>
 						<div class="bar">
 							<div class="progress"></div>
 						</div>
 						<div class="label">
-							{loqBrLabel[i]} <small>({loqPercent[i]}%)</small>
+							{loqBrLabel ? loqBrLabel[i] : ""}
+							<small>({loqPercent ? loqPercent[i] : "0"}%)</small>
 						</div>
 					</div>
 				{/each}

@@ -4,7 +4,7 @@
  * demo01 control stores
  */
 import { derived } from 'svelte/store';
-import { source } from '$lib/mrx-demo-stores';
+import { source } from '$lib/inc/store-misc';
 
 
 export const srcFormat = derived(source,
