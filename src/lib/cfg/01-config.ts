@@ -11,7 +11,7 @@ export const cfg: MrxDemoCfg = {
   demoUrl: "demo01",
   imageUrl: "logo/signiant-logo.png",
   altText: "01-signiant",
-  body: "Low / no-code metadata integration with MetRex. Find,\nparse and trust incoming data.\n",
+  body: "Low / no-code metadata integration with MetaRex. Find,\nparse and trust incoming data.\n",
   demoSummary: `
 #### Concept
 

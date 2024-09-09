@@ -1,4 +1,4 @@
-// MetRex register helpers
+// metarex register helpers
 import type { MrxRegisterEntry } from './inc/defs';
 import { base } from '$app/paths';
 

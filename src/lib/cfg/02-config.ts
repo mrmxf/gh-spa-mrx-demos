@@ -7,12 +7,12 @@ import type { MrxDemoCfg } from '$lib/inc/defs';
 export const cfg: MrxDemoCfg =
 {
   demoId: 2,
-  title: "MetRex",
+  title: "MetaRex",
   description: "How MetaRex works",
   demoUrl: "demo02",
   imageUrl: "logo/mrx-logo.svg",
   altText: "02-metarex",
-  body: "MetRex allows self describing metadata to be used with low or no code. The code is all free to use.",
+  body: "MetaRex allows self describing metadata to be used with low or no code. The code is all free to use.",
   demoSummary: `
 ### Key Points to be covered when animation's ready:
 

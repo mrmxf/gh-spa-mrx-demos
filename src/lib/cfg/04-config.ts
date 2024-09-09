@@ -11,7 +11,7 @@ export const cfg: MrxDemoCfg = {
   demoUrl: "demo04",
   imageUrl: "logo/codemill-logo.svg",
   altText: "04-demo-ai",
-  body: "Auto-normalizing AI segmentation metadata for different MAM and DAM\nsystems with MetRex.\n",
+  body: "Auto-normalizing AI segmentation metadata for different MAM and DAM\nsystems with MetaRex.\n",
   demoSummary: `
 ### Hyper personalization:
 

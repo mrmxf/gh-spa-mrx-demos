@@ -11,7 +11,7 @@ export const cfg: MrxDemoCfg = {
   demoUrl: "demo11",
   imageUrl: "logo/hand-logo.svg",
   altText: "11-hand-identity",
-  body: "Search the HAND database and control the formats that you need for your\nworkflow MetRex.\n",
+  body: "Search the HAND database and control the formats that you need for your\nworkflow MetaRex.\n",
   demoSummary: `
 ### Key points:
 

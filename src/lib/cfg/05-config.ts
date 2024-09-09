@@ -11,7 +11,7 @@ export const cfg: MrxDemoCfg = {
   demoUrl: "demo05",
   imageUrl: "logo/imfug-logo.svg",
   altText: "05-imf-qc",
-  body: "Auto validation of QC reports using MetRex register & services.",
+  body: "Auto validation of QC reports using MetaRex register & services.",
   demoSummary: `
 ### "It's creative intent!" _screamed the editor_ "It's meant to be black!"
 

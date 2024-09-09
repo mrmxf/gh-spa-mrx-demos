@@ -11,7 +11,7 @@ export const cfg: MrxDemoCfg = {
   demoUrl: "demo03",
   imageUrl: "logo/dawn-chorus-small.png",
   altText: "03-dawn-chorus",
-  body: "Add MetRex to precision audio field recordings for a unique Dolby\nAtmos nature experience.\n",
+  body: "Add MetaRex to precision audio field recordings for a unique Dolby\nAtmos nature experience.\n",
   demoSummary: `
 ### Dawn Chorus
 

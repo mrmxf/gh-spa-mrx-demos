@@ -11,7 +11,7 @@ export const cfg: MrxDemoCfg = {
   demoUrl: "demo10",
   imageUrl: "logo/nxtedition-logo.svg",
   altText: "10-nxtEdition-news",
-  body: "Lossless normalization of metadata using MetRex for news, avails\nand more.\n",
+  body: "Lossless normalization of metadata using MetaRex for news, avails\nand more.\n",
   demoSummary: `
 ### Key points:
 

@@ -12,7 +12,7 @@ export const cfg: MrxDemoCfg =
   demoUrl: "demo06",
   imageUrl: "logo/smpte-logo.svg",
   altText: "06-smpte-ris-osvp",
-  body: "Saving time and money with the common MetRex container.\n",
+  body: "Saving time and money with the common MetaRex container.\n",
   demoSummary: `
 **The problem**: Every shoot is a _special case_. Any slight change means
 more rigging and engineering. **3** different lens data types, **2** different

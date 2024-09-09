@@ -11,7 +11,7 @@ export const cfg: MrxDemoCfg = {
   demoUrl: "demo09",
   imageUrl: "logo/v-nova-logo.png",
   altText: "09-no-proxy",
-  body: "Smart transform of metadata and content for editing and visualization\nwith MetRex.\n",
+  body: "Smart transform of metadata and content for editing and visualization\nwith MetaRex.\n",
   demoSummary: `
 ## One file in the cloud to rule them all
 
